@@ -73,32 +73,36 @@
   margin-bottom: 2.5rem;
 }
 
-/* Grid layout */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* Card style */
+/* Project Card Style */
 .project-card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
-/* Inside content */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 .project-content {
   padding: 1.5rem;
+}
+
+.project-content .category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4a90e2;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .project-content h3 {
@@ -112,6 +116,7 @@
   color: #555;
   line-height: 1.5;
 }
+
 
 
 .card {
@@ -607,22 +612,33 @@
   <h2 class="section-title">Personal Projects</h2>
   <div class="projects-grid">
     
+    <section id="projects" data-aos="fade-up">
+  <h2 class="section-title">Personal Projects</h2>
+  <div class="projects-grid">
+    
+    <!-- Project Card -->
     <div class="project-card">
+      <img src="project1.jpg" alt="Web Scraper" />
       <div class="project-content">
+        <p class="category">Cloud</p>
         <h3>Web Scraper with Selenium + AWS Lambda</h3>
         <p>Built a scalable scraper deployed on AWS Lambda to automate data extraction.</p>
       </div>
     </div>
 
     <div class="project-card">
+      <img src="project2.jpg" alt="Handwriting Recognition" />
       <div class="project-content">
+        <p class="category">Machine Learning</p>
         <h3>Handwritten Character Recognition</h3>
         <p>Achieved 98% accuracy using deep learning models for handwriting recognition.</p>
       </div>
     </div>
 
     <div class="project-card">
+      <img src="project3.jpg" alt="Macroprocessor" />
       <div class="project-content">
+        <p class="category">Compilers</p>
         <h3>Macroprocessor (Two-Pass & Stack)</h3>
         <p>Implemented a compiler macroprocessor with two-pass & stack-based processing.</p>
       </div>
