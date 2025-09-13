@@ -39,15 +39,22 @@
     }
     nav a:hover, nav a.active { color: #004aad; }
 
-    /* Floating Emojis */
-    .floating-icons {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-      font-size: 1.5rem;
-      z-index: 1001;
+    /* Floating Emojis scattered + animated */
+    .floating-icons span {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.7;
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
+    .floating-icons span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .floating-icons span:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
+    .floating-icons span:nth-child(3) { top: 65%; left: 20%; animation-delay: 2s; }
+    .floating-icons span:nth-child(4) { top: 75%; left: 70%; animation-delay: 3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
 
     /* Hero */
@@ -59,15 +66,21 @@
       align-items: center;
       text-align: center;
       background: linear-gradient(180deg, #fafafa, #fff);
+      position: relative;
+      overflow: hidden;
     }
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
       font-weight: bold;
+      position: relative;
+      z-index: 2;
     }
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .hero .tags {
       display: flex;
@@ -75,6 +88,8 @@
       gap: 0.8rem;
       justify-content: center;
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .hero .tags span {
       background: #f1f1f1;
@@ -89,6 +104,8 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      position: relative;
+      z-index: 2;
     }
     .hero .buttons .primary {
       background: linear-gradient(90deg, #4a90e2, #9c27b0);
