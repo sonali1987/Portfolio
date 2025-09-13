@@ -4,148 +4,318 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sonali Sahu | Portfolio</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f5f7fa;
-      color: #333;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
     }
 
-    /* Semicircle header */
-    header {
-      width: 100%;
-      height: 250px;
-      background: #004aad;
-      border-bottom-left-radius: 50% 100px;
-      border-bottom-right-radius: 50% 100px;
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('Coding.jpeg') no-repeat center center/cover;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      position: relative;
+      align-items: center;
+      color: #fff;
+      text-align: center;
     }
 
-    header img {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border: 4px solid #fff;
-      position: absolute;
-      bottom: -75px; /* half the image height to overlap below header */
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
     }
 
     section {
       max-width: 1100px;
-      margin: 6rem auto 2rem; /* push content down to clear image */
+      margin: 5rem auto;
       padding: 0 1rem;
     }
 
     h2 {
-      color: #004aad;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #004aad;
-      display: inline-block;
-      padding-bottom: 0.2rem;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
     }
 
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: #004aad;
+      display: block;
+      margin: 0.5rem auto 0;
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill {
+      background: #f0f0f0;
+      padding: 0.7rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* Experience */
+    .experience {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .job {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .job img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .job-info {
+      flex: 1;
+    }
+
+    .job-info h3 {
+      margin: 0;
+      color: #004aad;
+    }
+
+    .job-info ul {
+      margin: 0.5rem 0 0 1rem;
+    }
+
+    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .project-card {
-      background: #fff;
+      position: relative;
+      overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
     }
 
     .project-card img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .project-card h3 {
-      margin: 0.8rem;
-      color: #222;
+    .project-card:hover img {
+      transform: scale(1.1);
     }
 
-    .project-card p {
-      margin: 0.5rem 0.8rem 1rem;
-      font-size: 0.95rem;
+    .project-info {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
     }
 
+    /* Certifications */
+    .certifications ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .certifications li {
+      background: #f9f9f9;
+      padding: 0.7rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Contact */
     .contact {
       text-align: center;
-      margin: 3rem 0;
     }
 
     .contact a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.7rem 1.2rem;
-      background: #004aad;
-      color: #fff;
-      border-radius: 5px;
+      margin: 0 1rem;
       text-decoration: none;
-      transition: background 0.2s ease;
-    }
-
-    .contact a:hover {
-      background: #003080;
+      color: #004aad;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
-    <!-- Your uploaded Coding image -->
-    <img src="Coding.jpeg" alt="Profile">
-  </header>
+  <!-- Hero Section -->
+  <div class="hero" data-aos="fade-in">
+    <h1>Sonali Sahu</h1>
+    <p>Software Engineer | Backend Developer | API & System Design</p>
+  </div>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I am a backend-focused software engineer with experience at Microsoft and Walmart Global Tech.
-      Skilled in Java, Python, Node.js, Spring Boot, Kafka, SQL/NoSQL, and cloud platforms like Azure and GCP. 
-      I specialize in designing scalable systems, building reliable APIs, and optimizing platform performance.
-    </p>
+  <!-- Skills -->
+  <section data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Java</div>
+      <div class="skill">Python</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Spring Boot</div>
+      <div class="skill">SQL / NoSQL</div>
+      <div class="skill">Kafka</div>
+      <div class="skill">Kubernetes</div>
+      <div class="skill">Azure</div>
+      <div class="skill">APIs (REST/GraphQL)</div>
+      <div class="skill">DevOps</div>
+    </div>
   </section>
 
-  <section>
-    <h2>Projects</h2>
+  <!-- Education -->
+  <section data-aos="fade-up">
+    <h2>Education</h2>
+    <p><strong>Masters in Data Science</strong>, BITS Pilani (2024 – Present)</p>
+    <p><strong>Bachelor of Technology (IT)</strong>, Banasthali Vidyapith (2016 – 2020)</p>
+  </section>
+
+  <!-- Experience -->
+  <section data-aos="fade-up">
+    <h2>Professional Experience</h2>
+    <div class="experience">
+
+      <!-- Microsoft -->
+      <div class="job">
+        <img src="microsoft-logo.png" alt="Microsoft">
+        <div class="job-info">
+          <h3>Software Engineer II – Microsoft, India</h3>
+          <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
+          <ul>
+            <li>Led migration of 19GB data from Reliable Collection (RC) to Cosmos DB with minimal downtime.</li>
+            <li>Migrated SQL connector & other service components for Intune data pipelines.</li>
+            <li>Validated and deployed services across environments (oneDF, SH, CTIP).</li>
+            <li>Collaborated with cross-functional teams and authored documentation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Walmart SE III -->
+      <div class="job">
+        <img src="walmart-logo.png" alt="Walmart">
+        <div class="job-info">
+          <h3>Software Engineer III – Walmart Global Tech, India</h3>
+          <p><em>Reach & Product Recall | Aug 2022 – May 2024</em></p>
+          <ul>
+            <li>Developed form-building platform with customizable fields & rules.</li>
+            <li>Integrated GCP BigQuery (BQ) for backend operations and analytics.</li>
+            <li>Built and managed APIs, improving processing time and performance.</li>
+            <li>Implemented validations, third-party integrations & proactive monitoring.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Walmart SE II -->
+      <div class="job">
+        <img src="walmart-logo.png" alt="Walmart">
+        <div class="job-info">
+          <h3>Software Engineer II – Walmart Global Tech, India</h3>
+          <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
+          <ul>
+            <li>Developed backend REST APIs and GraphQL queries with integrations.</li>
+            <li>Built Kafka-based real-time & scheduled email notification system.</li>
+            <li>Created cron jobs to sync SQL data with Kafka & update Redis cache.</li>
+            <li>Authored unit tests with JUnit and Chai frameworks.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Walmart Intern -->
+      <div class="job">
+        <img src="walmart-logo.png" alt="Walmart">
+        <div class="job-info">
+          <h3>Software Development Intern – Walmart Global Tech, India</h3>
+          <p><em>Skywalker | Jan 2020 – Jul 2020</em></p>
+          <ul>
+            <li>Developed REST APIs for supplier agreements & chatbot with Dialogflow.</li>
+            <li>Delivered omni-channel experience for suppliers & merchants.</li>
+            <li>Achieved 95% JUnit test coverage for chatbot and backend services.</li>
+            <li>Received Pre-Placement Offer (PPO) in July 2020.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section data-aos="fade-up">
+    <h2>Personal Projects</h2>
     <div class="projects">
       <div class="project-card">
-        <img src="https://picsum.photos/id/1011/400/200" alt="Invoice Automation">
-        <h3>Invoice Automation</h3>
-        <p>Automated PDF invoice distribution system integrated with backend services.</p>
+        <img src="project1.jpg" alt="Web Scraper">
+        <div class="project-info">Web Scraper with Selenium + AWS Lambda</div>
       </div>
       <div class="project-card">
-        <img src="https://picsum.photos/id/1040/400/200" alt="Chatbot with Dialogflow">
-        <h3>Chatbot with Dialogflow</h3>
-        <p>End-to-end chatbot for supplier onboarding and support using Dialogflow + APIs.</p>
+        <img src="project2.jpg" alt="Handwritten Recognition">
+        <div class="project-info">Handwritten Character Recognition (98% Accuracy)</div>
       </div>
       <div class="project-card">
-        <img src="https://picsum.photos/id/1039/400/200" alt="Kafka Notification Service">
-        <h3>Kafka Notification Service</h3>
-        <p>Real-time event-driven system for store notifications built on Kafka and Redis.</p>
+        <img src="project3.jpg" alt="Macroprocessor">
+        <div class="project-info">Macroprocessor (Two-Pass & Stack)</div>
       </div>
     </div>
   </section>
 
-  <section class="contact">
+  <!-- Certifications -->
+  <section class="certifications" data-aos="fade-up">
+    <h2>Certifications & Achievements</h2>
+    <ul>
+      <li>Machine Learning Crash Course – Google</li>
+      <li>Apache Kafka – LinkedIn</li>
+      <li>Neural Networks & Deep Learning – Coursera</li>
+      <li>Microservices & REST API – Pluralsight</li>
+      <li>Walmart Associate of the Month</li>
+      <li>1st Runner-up – Codestreak</li>
+      <li>1st Runner-up – Mood Indigo CR (IIT Bombay)</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" data-aos="fade-up">
     <h2>Contact</h2>
-    <a href="mailto:sonalisahu2309@gmail.com">Email Me</a>
+    <a href="mailto:sonalisahu2309@gmail.com">Email</a>
     <a href="https://linkedin.com/in/sonali-sahu-209b69156" target="_blank">LinkedIn</a>
     <a href="https://github.com/yourusername" target="_blank">GitHub</a>
   </section>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
