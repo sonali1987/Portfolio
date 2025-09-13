@@ -119,21 +119,37 @@
       margin: 0.5rem auto 0;
     }
 
-    /* Skills */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
+    /* Skill Cards */
+    .skill-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
-    .skill {
-      background: #f0f0f0;
-      padding: 0.7rem 1.2rem;
-      border-radius: 20px;
-      font-size: 0.95rem;
+    .skill-card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+    .skill-card h3 { margin-top: 0; }
+    .progress-bar {
+      background: #eee;
+      border-radius: 10px;
+      height: 10px;
+      margin: 0.5rem 0 1rem;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 1.2s ease;
+    }
+    .blue { background: #3b82f6; }
+    .green { background: #10b981; }
+    .purple { background: #8b5cf6; }
+    .orange { background: #f97316; }
 
-    /* Experience */
+    /* Experience, Projects, Contact */
     .experience { display: grid; gap: 2rem; }
     .job {
       background: #f9f9f9;
@@ -144,23 +160,19 @@
     .job h3 { margin: 0; color: #004aad; }
     .job ul { margin: 0.5rem 0 0 1rem; }
 
-    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
     .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       background: #fff;
       padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .project-card h3 { color: #004aad; }
 
-    /* Contact */
     .contact { text-align: center; }
     .contact a {
       margin: 0 1rem;
@@ -190,7 +202,6 @@
     <h1 class="gradient-text">Sonali Sahu</h1>
     <h3 class="subtitle">Software Engineer | Backend Developer | System Design Enthusiast</h3>
     <p>Crafting scalable backend systems, APIs & modern cloud solutions</p>
-
     <div class="tags">
       <span>Java</span>
       <span>Spring Boot</span>
@@ -198,52 +209,63 @@
       <span>Kafka</span>
       <span>Azure</span>
     </div>
-
     <div class="hero-buttons">
       <a href="#projects" class="btn primary">View My Work →</a>
       <a href="#contact" class="btn secondary">Get in Touch</a>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Skills with Progress Bars -->
   <section id="skills" data-aos="fade-up">
-    <h2>Strengths & Expertise</h2>
-    <div class="skills">
-      <div class="skill">Java</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">Python</div>
-      <div class="skill">Node.js</div>
-      <div class="skill">Spring Boot</div>
-      <div class="skill">Relational DBs</div>
-      <div class="skill">MongoDB</div>
-      <div class="skill">Cosmos DB</div>
-      <div class="skill">Tableau</div>
-      <div class="skill">GCP</div>
-      <div class="skill">BigQuery</div>
-      <div class="skill">APIs</div>
-      <div class="skill">JUnit</div>
-      <div class="skill">GraphQL</div>
-      <div class="skill">RESTful APIs</div>
-      <div class="skill">Redis Cache</div>
-      <div class="skill">Maven</div>
-      <div class="skill">Git</div>
-      <div class="skill">Kafka</div>
-      <div class="skill">Kubernetes</div>
-      <div class="skill">Azure</div>
-      <div class="skill">Anaconda</div>
-      <div class="skill">Google Colab</div>
-      <div class="skill">Splunk</div>
-      <div class="skill">Dialogflow</div>
-      <div class="skill">Protractor</div>
-      <div class="skill">Chai</div>
-      <div class="skill">Postman</div>
-      <div class="skill">Kommunicate</div>
-      <div class="skill">Data Structures & Algorithms</div>
-      <div class="skill">OOP</div>
-      <div class="skill">Linear & Logistic Regression</div>
-      <div class="skill">Classification</div>
-      <div class="skill">Decision Trees</div>
-      <div class="skill">Clustering</div>
+    <h2>Technical Expertise</h2>
+    <div class="skill-cards">
+      <!-- Frontend -->
+      <div class="skill-card" data-aos="fade-up">
+        <h3>🎨 Frontend Development</h3>
+        <p>React, JavaScript, HTML, CSS</p>
+        <div>React & JS 95%</div>
+        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
+        <div>Modern CSS 90%</div>
+        <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
+      </div>
+
+      <!-- Backend -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>⚡ Backend & APIs</h3>
+        <p>Java, Spring Boot, Node.js, GraphQL, REST</p>
+        <div>Java / Spring Boot 95%</div>
+        <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
+        <div>Node.js & APIs 90%</div>
+        <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
+        <div>GraphQL / REST 85%</div>
+        <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
+        <div>Databases (SQL, NoSQL, CosmosDB) 88%</div>
+        <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>🚀 DevOps & Cloud</h3>
+        <p>Azure, Kubernetes, Kafka, CI/CD</p>
+        <div>Kubernetes / Docker 88%</div>
+        <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
+        <div>Azure / Cloud 85%</div>
+        <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
+        <div>Kafka / Messaging 90%</div>
+        <div class="progress-bar"><div class="progress purple" style="width:90%"></div></div>
+      </div>
+
+      <!-- Data Science -->
+      <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+        <h3>📊 Data Science & ML</h3>
+        <p>TensorFlow, Keras, Regression, Clustering</p>
+        <div>Machine Learning 80%</div>
+        <div class="progress-bar"><div class="progress orange" style="width:80%"></div></div>
+        <div>Deep Learning (CNN) 82%</div>
+        <div class="progress-bar"><div class="progress orange" style="width:82%"></div></div>
+        <div>Data Analysis (Tableau, BQ) 85%</div>
+        <div class="progress-bar"><div class="progress orange" style="width:85%"></div></div>
+      </div>
     </div>
   </section>
 
@@ -252,73 +274,8 @@
     <h2>Professional Experience</h2>
     <div class="experience">
       <div class="job">
-        <h3>Software Engineer II – Microsoft, India (June 2024 – Present)</h3>
+        <h3>Software Engineer II – Microsoft, India (2024 – Present)</h3>
         <ul>
           <li>Led migration of 19GB data from RC to Cosmos DB with minimal downtime.</li>
           <li>Migrated SQL connector & service components for Intune data pipelines.</li>
-          <li>Validated and deployed services across environments (oneDF, SH, CTIP).</li>
-          <li>Collaborated with cross-functional teams and authored documentation.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Software Engineer III – Walmart Global Tech, India (Aug 2022 – May 2024)</h3>
-        <ul>
-          <li>Developed form-building platform with customizable fields & rules.</li>
-          <li>Integrated GCP BigQuery for backend operations and analytics.</li>
-          <li>Built APIs, improving processing time and performance.</li>
-          <li>Implemented validations, integrations & proactive monitoring.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Software Engineer II – Walmart Global Tech, India (Aug 2020 – Aug 2022)</h3>
-        <ul>
-          <li>Developed REST APIs and GraphQL queries with integrations.</li>
-          <li>Built Kafka-based email notification system.</li>
-          <li>Created cron jobs to sync SQL with Kafka & Redis.</li>
-          <li>Authored unit tests with JUnit and Chai.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Software Development Intern – Walmart Global Tech, India (Jan 2020 – Jul 2020)</h3>
-        <ul>
-          <li>Developed REST APIs for supplier agreements & chatbot with Dialogflow.</li>
-          <li>Delivered omni-channel experience for suppliers & merchants.</li>
-          <li>Achieved 95% JUnit test coverage.</li>
-          <li>Received Pre-Placement Offer in July 2020.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Web Scraper with Selenium + AWS Lambda</h3>
-        <p>Scraped top 10 trending YouTube videos every 30 minutes, sending results as CSV via email or spreadsheet.</p>
-      </div>
-      <div class="project-card">
-        <h3>Handwritten Character Recognition</h3>
-        <p>GUI for Alpha-Numeric recognition using Deep Learning (CNN, TensorFlow, Keras). Validation Accuracy: 98%.</p>
-      </div>
-      <div class="project-card">
-        <h3>Macroprocessor (Two-Pass & Stack)</h3>
-        <p>Java-based macroprocessor handling nested calls using stack with Two-Pass Algorithm.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <a href="mailto:sonalisahu2309@gmail.com">Email</a>
-    <a href="https://linkedin.com/in/sonali-sahu-209b69156" target="_blank">LinkedIn</a>
-    <a href="https://github.com/sonali1987" target="_blank">GitHub</a>
-  </section>
-
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
-</body>
-</html>
+          <li>Validated and deployed services across environments (oneDF, SH, C
