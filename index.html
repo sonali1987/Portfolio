@@ -38,34 +38,31 @@
       transition: color 0.3s;
     }
     nav a:hover, nav a.active { color: #004aad; }
+    
 /* Floating Emojis scattered + animated */
-.floating-icons {
-  position: fixed; /* stay on screen */
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none; /* don’t block clicks */
-  z-index: 999; /* put them above everything */
-}
+    .floating-icons {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .floating-icons span {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.7;
+      animation: float 6s ease-in-out infinite;
+    }
+    .floating-icons span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+    .floating-icons span:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
+    .floating-icons span:nth-child(3) { top: 65%; left: 20%; animation-delay: 2s; }
+    .floating-icons span:nth-child(4) { top: 75%; left: 70%; animation-delay: 3s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
 
-.floating-icons span {
-  position: absolute;
-  font-size: 2rem;
-  opacity: 0.7;
-  animation: float 6s ease-in-out infinite;
-}
-
-.floating-icons span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-.floating-icons span:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
-.floating-icons span:nth-child(3) { top: 65%; left: 20%; animation-delay: 2s; }
-.floating-icons span:nth-child(4) { top: 75%; left: 70%; animation-delay: 3s; }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-
-    /* Hero */
+/* Hero */
     .hero {
       height: 100vh;
       display: flex;
@@ -77,13 +74,36 @@
       position: relative;
       overflow: hidden;
     }
+
+    /* 🔹 Name Styling with Blue Underline Effect */
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin-bottom: 1rem;
       font-weight: bold;
       position: relative;
       z-index: 2;
+      color: #004aad;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
+    .hero h1::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 4px;
+      background: linear-gradient(90deg, #4a90e2, #00c6ff);
+      box-shadow: 0 0 12px rgba(0, 74, 173, 0.8);
+      border-radius: 2px;
+      animation: glowline 2s infinite alternate;
+    }
+    @keyframes glowline {
+      from { box-shadow: 0 0 8px rgba(0,74,173,0.6); }
+      to { box-shadow: 0 0 20px rgba(0,74,173,1); }
+    }
+
     .hero p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
@@ -124,6 +144,13 @@
       color: #333;
     }
 
+    /* Scroll text */
+    .scroll-text {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    
     /* Skills Section */
     #skills {
       background: #f7f8fa;
@@ -285,7 +312,7 @@
     <span>⚡</span>
   </div>
 
-  <!-- Navbar -->
+ <!-- Navbar -->
   <header>
     <nav>
       <ul>
@@ -298,26 +325,27 @@
     </nav>
   </header>
 
-<div id="hero" class="hero" data-aos="fade-in">
-  <h1>Sonali Sahu</h1>
-  <div class="subtitle">Backend Developer | System Design Enthusiast</div>
-  <p>🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
-  
-  <div class="tags">
-    <span>Java</span>
-    <span>Spring Boot</span>
-    <span>Node.js</span>
-    <span>Kafka</span>
-    <span>Azure</span>
-  </div>
+  <!-- Hero Section -->
+  <div id="hero" class="hero" data-aos="fade-in">
+    <h1>Sonali Sahu</h1>
+    <div class="subtitle">Backend Developer | System Design Enthusiast</div>
+    <p>🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
 
-  <div class="buttons">
-    <a href="#projects" class="primary">View My Work →</a>
-    <a href="#contact" class="secondary">Get in Touch</a>
-  </div>
+    <div class="tags">
+      <span>Java</span>
+      <span>Spring Boot</span>
+      <span>Node.js</span>
+      <span>Kafka</span>
+      <span>Azure</span>
+    </div>
 
-  <p class="scroll-text">↓ Scroll to explore ↓</p>
-</div>
+    <div class="buttons">
+      <a href="#projects" class="primary">View My Work →</a>
+      <a href="#contact" class="secondary">Get in Touch</a>
+    </div>
+
+    <p class="scroll-text">↓ Scroll to explore ↓</p>
+  </div>
 
   <!-- Skills Section -->
 <section id="skills" data-aos="fade-up">
