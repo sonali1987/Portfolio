@@ -1,237 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sonali Sahu | Portfolio</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    /* Navbar */
-    header {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,.1);
-      z-index: 1000;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0; padding: 1rem 0;
-    }
-    nav li { margin: 0 15px; }
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav a:hover, nav a.active { color: #004aad; }
-
-    /* Hero */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(180deg, #fafafa, #fff);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: bold;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .hero .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .hero .tags span {
-      background: #f1f1f1;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-    .hero .buttons a {
-      margin: 0 0.5rem;
-      padding: 0.7rem 1.5rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .hero .buttons .primary {
-      background: linear-gradient(90deg, #4a90e2, #9c27b0);
-      color: #fff;
-    }
-    .hero .buttons .secondary {
-      background: #eee;
-      color: #333;
-    }
-
-    /* Skills Section (Modern Style) */
-    #skills {
-      background: #f7f8fa;
-      padding: 5rem 1rem;
-    }
-    #skills h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .skill-card {
-      flex: 1 1 300px;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .skill-card h3 {
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .progress-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-    .progress-bar {
-      background: #eee;
-      border-radius: 5px;
-      overflow: hidden;
-      height: 8px;
-      margin-bottom: 1rem;
-    }
-    .progress {
-      height: 8px;
-      border-radius: 5px;
-    }
-    .blue { background: #4a90e2; }
-    .green { background: #4caf50; }
-    .purple { background: #9c27b0; }
-
-    /* Experience */
-    .experience { display: grid; gap: 2rem; max-width:1100px; margin:auto; }
-    .job {
-      display: flex; gap: 1rem;
-      align-items: flex-start;
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .job img {
-      width: 80px; height: 80px;
-      object-fit: contain;
-    }
-    .job-info { flex: 1; }
-    .job-info h3 { margin: 0; color: #004aad; }
-    .job-info ul { margin: 0.5rem 0 0 1rem; }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .project-card img {
-      width: 100%; height: 200px; object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .project-card:hover img { transform: scale(1.1); }
-    .project-info {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      width: 100%;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    /* Contact */
-    .contact { text-align: center; padding: 4rem 1rem; }
-    .contact h2 { margin-bottom: 1rem; }
-    .contact p { margin-bottom: 1.5rem; }
-    .contact a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.7rem 1.5rem;
-      text-decoration: none;
-      border-radius: 25px;
-      background: linear-gradient(90deg, #4a90e2, #9c27b0);
-      color: #fff;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .contact a:hover {
-      opacity: 0.9;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Floating Background Icons -->
+  <div class="floating-icons">
+    <img src="assets/rocket.png" class="icon rocket" alt="rocket" />
+    <img src="assets/laptop.png" class="icon laptop" alt="laptop" />
+    <img src="assets/fire.png" class="icon fire" alt="fire" />
+    <img src="assets/bolt.png" class="icon bolt" alt="bolt" />
+  </div>
 
   <!-- Hero Section -->
-  <div id="hero" class="hero" data-aos="fade-in">
+  <section id="home" class="hero">
     <h1>Sonali Sahu</h1>
-    <p><strong>Software Engineer | Backend Developer | System Design Enthusiast</strong></p>
-    <p>🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
-    <div class="tags">
+    <h2>Software Engineer | Backend Developer | System Design Enthusiast</h2>
+    <p>Crafting scalable backend systems, APIs & modern cloud solutions</p>
+    <div class="skills">
       <span>Java</span>
       <span>Spring Boot</span>
       <span>Node.js</span>
@@ -239,164 +28,75 @@
       <span>Azure</span>
     </div>
     <div class="buttons">
-      <a href="#projects" class="primary">View My Work →</a>
-      <a href="#contact" class="secondary">Get in Touch</a>
+      <a href="#projects" class="btn primary">View My Work →</a>
+      <a href="#contact" class="btn secondary">Get in Touch</a>
     </div>
-    <p style="margin-top:2rem; font-size:0.9rem; color:#555;">↓ Scroll to explore ↓</p>
-  </div>
+    <p class="scroll-hint">↓ Scroll to explore ↓</p>
+  </section>
 
-  <!-- Skills Section -->
-  <section id="skills" data-aos="fade-up">
-    <h2>Technical Expertise</h2>
+  <!-- Technical Expertise -->
+  <section id="skills" class="section">
+    <h2 class="section-title">Technical Expertise</h2>
     <div class="skills-grid">
-      <!-- Frontend -->
-      <div class="skill-card">
-        <h3>🎨 Frontend Development</h3>
-        <div class="progress-item"><span>React & Next.js</span><span>95%</span></div>
-        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
-
-        <div class="progress-item"><span>TypeScript</span><span>90%</span></div>
-        <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
-
-        <div class="progress-item"><span>Modern CSS</span><span>95%</span></div>
-        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
-
-        <div class="progress-item"><span>Web Animation</span><span>85%</span></div>
-        <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
+      <div class="card">
+        <h3>Frontend Development</h3>
+        <p>React & Next.js – 95%</p>
+        <p>TypeScript – 90%</p>
+        <p>Modern CSS – 95%</p>
+        <p>Web Animation – 85%</p>
       </div>
-
-      <!-- Backend -->
-      <div class="skill-card">
-        <h3>⚡ Backend & APIs</h3>
-        <div class="progress-item"><span>Node.js</span><span>90%</span></div>
-        <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
-
-        <div class="progress-item"><span>RESTful APIs</span><span>95%</span></div>
-        <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
-
-        <div class="progress-item"><span>GraphQL</span><span>85%</span></div>
-        <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
-
-        <div class="progress-item"><span>Database Design</span><span>88%</span></div>
-        <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
+      <div class="card">
+        <h3>Backend & APIs</h3>
+        <p>Node.js – 90%</p>
+        <p>RESTful APIs – 95%</p>
+        <p>GraphQL – 85%</p>
+        <p>Database Design – 88%</p>
       </div>
-
-      <!-- DevOps -->
-      <div class="skill-card">
-        <h3>🚀 Performance & DevOps</h3>
-        <div class="progress-item"><span>Web Performance</span><span>92%</span></div>
-        <div class="progress-bar"><div class="progress purple" style="width:92%"></div></div>
-
-        <div class="progress-item"><span>CI/CD</span><span>88%</span></div>
-        <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
-
-        <div class="progress-item"><span>Docker</span><span>85%</span></div>
-        <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
-
-        <div class="progress-item"><span>AWS</span><span>82%</span></div>
-        <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
+      <div class="card">
+        <h3>Performance & DevOps</h3>
+        <p>Web Performance – 92%</p>
+        <p>CI/CD – 88%</p>
+        <p>Docker – 85%</p>
+        <p>AWS – 82%</p>
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" data-aos="fade-up">
-    <h2>Professional Experience</h2>
-    <div class="experience">
-
-      <!-- Microsoft -->
-      <div class="job">
-        <img src="microsoft-logo.png" alt="Microsoft">
-        <div class="job-info">
-          <h3>Software Engineer II – Microsoft, India</h3>
-          <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
-          <ul>
-            <li>Led migration of 19GB data from Reliable Collection (RC) to Cosmos DB.</li>
-            <li>Migrated SQL connector & service components for Intune data pipelines.</li>
-            <li>Validated and deployed services across oneDF, SH, CTIP.</li>
-            <li>Collaborated with teams & authored documentation.</li>
-          </ul>
-        </div>
+  <!-- Professional Experience -->
+  <section id="experience" class="section">
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="experience-container">
+      <div class="experience-card">
+        <h3>Software Engineer II – Microsoft, India</h3>
+        <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
+        <ul>
+          <li>Led migration of 19GB data from Reliable Collection (RC) to Cosmos DB.</li>
+          <li>Migrated SQL connector & service components for Intune data pipelines.</li>
+          <li>Validated and deployed services across oneDF, SH, CTIP.</li>
+          <li>Collaborated with teams & authored documentation.</li>
+        </ul>
       </div>
 
-      <!-- Walmart -->
-      <div class="job">
-        <img src="walmart-logo.png" alt="Walmart">
-        <div class="job-info">
-          <h3>Software Engineer III – Walmart Global Tech, India</h3>
-          <p><em>Reach & Product Recall | Aug 2022 – May 2024</em></p>
-          <ul>
-            <li>Developed form-building platform with customizable fields & rules.</li>
-            <li>Integrated GCP BigQuery for backend operations and analytics.</li>
-            <li>Built APIs improving performance and processing time.</li>
-            <li>Implemented validations, integrations & monitoring.</li>
-          </ul>
-        </div>
+      <div class="experience-card">
+        <h3>Software Engineer III – Walmart Global Tech, India</h3>
+        <p><em>Reach & Product Recall | Aug 2022 – May 2024</em></p>
+        <ul>
+          <li>Developed form-building platform with customizable fields & rules.</li>
+          <li>Integrated GCP BigQuery for backend operations and analytics.</li>
+          <li>Built APIs improving performance and processing time.</li>
+          <li>Implemented validations, integrations & monitoring.</li>
+        </ul>
       </div>
 
-      <div class="job">
-        <img src="walmart-logo.png" alt="Walmart">
-        <div class="job-info">
-          <h3>Software Engineer II – Walmart Global Tech, India</h3>
-          <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
-          <ul>
-            <li>Developed REST APIs & GraphQL queries with integrations.</li>
-            <li>Built Kafka-based email notification system on Kubernetes.</li>
-            <li>Created cron jobs syncing SQL with Kafka & Redis.</li>
-            <li>Authored JUnit & Chai unit tests.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <img src="walmart-logo.png" alt="Walmart">
-        <div class="job-info">
-          <h3>Software Development Intern – Walmart Global Tech, India</h3>
-          <p><em>Skywalker | Jan 2020 – Jul 2020</em></p>
-          <ul>
-            <li>Developed REST APIs for supplier agreements & chatbot with Dialogflow.</li>
-            <li>Delivered omni-channel supplier experience.</li>
-            <li>Achieved 95% JUnit coverage.</li>
-            <li>Received PPO in July 2020.</li>
-          </ul>
-        </div>
+      <div class="experience-card">
+        <h3>Software Engineer II – Walmart Global Tech, India</h3>
+        <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
+        <ul>
+          <li>Developed REST APIs & GraphQL services to streamline product recalls.</li>
+          <li>Enhanced reliability of backend systems via caching (Redis) & async processing.</li>
+        </ul>
       </div>
     </div>
   </section>
-
-  <!-- Projects -->
-  <section id="projects" data-aos="fade-up">
-    <h2>Personal Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <img src="project1.jpg" alt="Web Scraper">
-        <div class="project-info">Web Scraper with Selenium + AWS Lambda</div>
-      </div>
-      <div class="project-card">
-        <img src="project2.jpg" alt="Handwritten Recognition">
-        <div class="project-info">Handwritten Character Recognition (98% Accuracy)</div>
-      </div>
-      <div class="project-card">
-        <img src="project3.jpg" alt="Macroprocessor">
-        <div class="project-info">Macroprocessor (Two-Pass & Stack)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact" data-aos="fade-up">
-    <h2>Let’s Build Something Amazing</h2>
-    <p>Looking for a developer who can create high-performance, interactive web experiences?</p>
-    <p>📍 Bengaluru, India</p>
-    <a href="mailto:sonalisahu2309@gmail.com">Get in Touch</a>
-    <a href="https://linkedin.com/in/sonali-sahu-209b69156" target="_blank">LinkedIn</a>
-    <a href="https://github.com/sonali1987" target="_blank">GitHub</a>
-  </section>
-
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
 </body>
 </html>
