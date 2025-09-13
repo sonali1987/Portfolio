@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sonali Sahu | Portfolio</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    /* ---------- base ---------- */
+    :root{
+      --blue:#4a90e2;
+      --purple:#9c27b0;
+      --title-color:#0b1220;
+    }
     body {
       margin: 0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -15,322 +21,196 @@
       scroll-behavior: smooth;
     }
 
-    /* Navbar */
-    header {
+    /* ---------- navbar ---------- */
+    header{
       position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,.1);
-      z-index: 1000;
+      top:0; left:0;
+      width:100%;
+      background:#fff;
+      box-shadow:0 2px 5px rgba(0,0,0,0.06);
+      z-index:1005;
     }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      margin: 0; padding: 1rem 0;
+    nav ul{
+      display:flex;
+      justify-content:center;
+      list-style:none;
+      margin:0; padding:1rem 0;
     }
-    nav li { margin: 0 15px; }
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      transition: color 0.3s;
+    nav li{ margin:0 15px; }
+    nav a{
+      text-decoration:none; color:#333; font-weight:600;
+      transition: color .25s;
     }
-    nav a:hover, nav a.active { color: #004aad; }
-    
-   /* Floating Emojis scattered + animated */
-    .floating-icons {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 999;
-    }
-    .floating-icons span {
-      position: absolute;
-      font-size: 2rem;
-      opacity: 0.7;
-      animation: float 6s ease-in-out infinite;
-    }
-    .floating-icons span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-    .floating-icons span:nth-child(2) { top: 40%; left: 80%; animation-delay: 1s; }
-    .floating-icons span:nth-child(3) { top: 65%; left: 20%; animation-delay: 2s; }
-    .floating-icons span:nth-child(4) { top: 75%; left: 70%; animation-delay: 3s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
+    nav a:hover, nav a.active{ color:var(--blue); }
 
-    .hero-title {
-  font-size: 4.5rem;              /* bigger */
-  font-weight: 900;              /* bold */
-  text-transform: uppercase;      /* all caps */
-  position: relative;
-  z-index: 2;
-  color: #111;
-  letter-spacing: 2px;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.hero-title::before {
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%; height: 120%;
-  background: radial-gradient(circle at center, rgba(74,144,226,0.6), rgba(156,39,176,0.4), transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
-  filter: blur(40px);
-}
-
-    /* Hero */
+    /* ---------- HERO ---------- */
     .hero {
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
       background: linear-gradient(180deg, #fafafa, #fff);
       position: relative;
       overflow: hidden;
+      padding-top: 60px; /* allow for fixed header */
     }
 
-    /* 🔹 Name Styling with Blue Underline Effect */
-    .hero h1 {
-      font-size: 3.2rem;
-      margin-bottom: 1rem;
-      font-weight: bold;
+    /* Glow behind the title (centered) */
+    .hero::before{
+      content:"";
+      position:absolute;
+      top: 16%;
+      left:50%;
+      transform:translateX(-50%);
+      width: 75%;
+      height: 34%;
+      pointer-events:none;
+      background:
+        radial-gradient(35% 60% at 25% 50%, rgba(74,144,226,0.40), rgba(74,144,226,0.10) 20%, transparent 55%),
+        radial-gradient(40% 70% at 75% 50%, rgba(156,39,176,0.40), rgba(156,39,176,0.08) 20%, transparent 60%);
+      filter: blur(48px);
+      z-index: 1;
+    }
+
+    /* Title */
+    .hero h1{
+      margin:0;
+      color:var(--title-color);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:2px;
       position: relative;
       z-index: 2;
-      color: #004aad;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      /* responsive big size */
+      font-size: clamp(48px, 10vw, 140px);
+      line-height: 0.95;
+      padding: 0 12px;
     }
-    .hero h1::after {
+
+    /* subtitle + lines */
+    .subtitle {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin-top: 8px;
+      color: #222;
+      font-weight: 600;
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+    /* left & right lines around subtitle */
+    .subtitle::before,
+    .subtitle::after{
       content: "";
       position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 4px;
-      background: linear-gradient(90deg, #4a90e2, #00c6ff);
-      box-shadow: 0 0 12px rgba(0, 74, 173, 0.8);
-      border-radius: 2px;
-      animation: glowline 2s infinite alternate;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 84px;
+      height: 2px;
+      background: var(--blue);
+      opacity: 0.95;
     }
-    @keyframes glowline {
-      from { box-shadow: 0 0 8px rgba(0,74,173,0.6); }
-      to { box-shadow: 0 0 20px rgba(0,74,173,1); }
-    }
+    .subtitle::before{ right: calc(100% + 18px); }
+    .subtitle::after{ left: calc(100% + 18px); }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-    .hero .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-    .hero .tags span {
-      background: #f1f1f1;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-    .hero .buttons a {
-      margin: 0 0.5rem;
-      padding: 0.7rem 1.5rem;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      position: relative;
-      z-index: 2;
-    }
-    .hero .buttons .primary {
-      background: linear-gradient(90deg, #4a90e2, #9c27b0);
-      color: #fff;
-    }
-    .hero .buttons .secondary {
-      background: #eee;
+    /* short description under subtitle */
+    .hero p.description {
+      margin-top: 18px;
+      font-size: 1.05rem;
       color: #333;
+      z-index: 2;
+      position: relative;
+      max-width: 880px;
     }
 
-    /* Scroll text */
-    .scroll-text {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #555;
+    .tags { margin-top:18px; display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; z-index:2; position:relative; }
+    .tags span{
+      background:#f1f1f1; padding:.5rem 1rem; border-radius:20px; font-size:0.9rem;
     }
-    
-    /* Skills Section */
-    #skills {
-      background: #f7f8fa;
-      padding: 5rem 1rem;
+
+    .buttons { margin-top:18px; z-index:2; position:relative; }
+    .buttons a{
+      margin:0 .5rem; padding:.7rem 1.5rem; border-radius:25px; text-decoration:none; font-weight:700; transition:.25s;
     }
-    #skills h2 {
-      text-align: center;
+    .buttons .primary{ background: linear-gradient(90deg,var(--blue),var(--purple)); color:#fff; box-shadow: 0 6px 18px rgba(156,39,176,0.12);}
+    .buttons .secondary{ background:#efefef; color:#222; }
+
+    .scroll-text { margin-top: 3rem; font-size:0.95rem; color:#666; z-index:2; position:relative; }
+
+    /* ---------- floating icons (only inside hero) ---------- */
+    .floating-icons{
+      position:absolute;
+      inset:0;
+      pointer-events:none;       /* don't block clicks */
+      z-index:1;                 /* below title (title z-index:2) and above hero background */
+    }
+    .floating-icons span{
+      position:absolute;
       font-size: 2rem;
-      margin-bottom: 3rem;
-      position: relative;
+      opacity: .95;
+      animation: float 7s ease-in-out infinite;
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,0.06));
+      transform-origin: center;
     }
-    
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .skill-card {
-      flex: 1 1 300px;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .skill-card h3 {
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .progress-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-    .progress-bar {
-      background: #eee;
-      border-radius: 5px;
-      overflow: hidden;
-      height: 8px;
-      margin-bottom: 1rem;
-    }
-    .progress {
-      height: 8px;
-      border-radius: 5px;
-    }
-    .scroll-text {
-  margin-top: 3rem;   /* increase gap */
-  font-size: 0.9rem;
-  color: #555;
-}
-    
-    .blue { background: #4a90e2; }
-    .green { background: #4caf50; }
-    .purple { background: #9c27b0; }
+    /* place icons around hero (tweak values for visual balance) */
+    .floating-icons span:nth-child(1){ top:6%; right:8%; font-size:2.2rem; animation-delay: 0s; }
+    .floating-icons span:nth-child(2){ top:12%; left:6%; font-size:2.2rem; animation-delay: .7s; transform: rotate(-8deg); }
+    .floating-icons span:nth-child(3){ bottom:18%; left:18%; font-size:2.2rem; animation-delay: 1.6s; }
+    .floating-icons span:nth-child(4){ bottom:14%; right:20%; font-size:2.2rem; animation-delay: 2.2s; }
 
-    /* Experience */
-    #experience {
-      padding: 5rem 1rem;
-      background: #fff;
-    }
-    #experience h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .experience {
-      display: grid;
-      gap: 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .job {
-      display: flex; gap: 1rem;
-      align-items: flex-start;
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .job img {
-      width: 80px; height: 80px;
-      object-fit: contain;
-    }
-    .job-info { flex: 1; }
-    .job-info h3 { margin: 0; color: #004aad; }
-    .job-info ul { margin: 0.5rem 0 0 1rem; }
-
-    /* Projects */
-    #projects {
-      padding: 5rem 1rem;
-      background: #f7f8fa;
-    }
-    #projects h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .project-card img {
-      width: 100%; height: 200px; object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .project-card:hover img { transform: scale(1.1); }
-    .project-info {
-      position: absolute;
-      bottom: 0;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      width: 100%;
-      padding: 1rem;
-      text-align: center;
+    @keyframes float{
+      0%{ transform: translateY(0) rotate(0deg); }
+      50%{ transform: translateY(-22px) rotate(6deg); }
+      100%{ transform: translateY(0) rotate(0deg); }
     }
 
-    /* Contact */
-    .contact { text-align: center; padding: 4rem 1rem; }
-    .contact h2 { margin-bottom: 1rem; }
-    .contact p { margin-bottom: 1.5rem; }
-    .contact a {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.7rem 1.5rem;
-      text-decoration: none;
-      border-radius: 25px;
-      background: linear-gradient(90deg, #4a90e2, #9c27b0);
-      color: #fff;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .contact a:hover {
-      opacity: 0.9;
+    /* ---------- Skills / rest of page (unchanged logic, simplified) ---------- */
+    #skills { background: #f7f8fa; padding: 5rem 1rem; }
+    #skills h2{ text-align:center; font-size:2rem; margin-bottom:3rem; }
+    .skills-grid{ display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; max-width:1200px; margin:auto; }
+    .skill-card{ flex:1 1 300px; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.05); }
+    .skill-card h3{ margin-top:0; margin-bottom:1.5rem; font-size:1.1rem; font-weight:700; display:flex; align-items:center; gap:.5rem; }
+    .progress-item{ display:flex; justify-content:space-between; font-size:0.9rem; margin-bottom:.4rem; }
+    .progress-bar{ background:#eee; border-radius:5px; overflow:hidden; height:8px; margin-bottom:1rem; }
+    .progress{ height:8px; border-radius:5px; }
+    .blue{ background:var(--blue); } .green{ background:#4caf50; } .purple{ background:var(--purple); }
+
+    /* ---------- Experience ---------- */
+    #experience { padding:5rem 1rem; background:#fff; }
+    #experience h2{ text-align:center; margin-bottom:3rem; }
+    .experience{ display:grid; gap:2rem; max-width:1100px; margin:auto; }
+    .job{ display:flex; gap:1rem; align-items:flex-start; background:#f9f9f9; padding:1rem; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .job img{ width:80px; height:80px; object-fit:contain; }
+    .job-info{ flex:1; } .job-info h3{ margin:0; color:var(--blue); }
+
+    /* ---------- Projects ---------- */
+    #projects{ padding:5rem 1rem; background:#f7f8fa; }
+    #projects h2{ text-align:center; margin-bottom:3rem; }
+    .projects{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2rem; max-width:1100px; margin:auto; }
+    .project-card{ position:relative; overflow:hidden; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .project-card img{ width:100%; height:200px; object-fit:cover; transition:transform .5s ease; }
+    .project-card:hover img{ transform:scale(1.07); }
+    .project-info{ position:absolute; bottom:0; background:rgba(0,0,0,0.6); color:#fff; width:100%; padding:1rem; text-align:center; }
+
+    /* ---------- Contact ---------- */
+    .contact{ text-align:center; padding:4rem 1rem; }
+    .contact a{ display:inline-block; margin:.5rem; padding:.7rem 1.5rem; text-decoration:none; border-radius:25px; background: linear-gradient(90deg,var(--blue),var(--purple)); color:#fff; font-weight:700; }
+    .contact a:hover{ opacity:.95; }
+
+    /* responsive tweaks */
+    @media (max-width:720px){
+      .hero::before{ width:92%; height:38%; top: 20%; filter: blur(36px); }
+      .subtitle::before, .subtitle::after{ width:56px; }
+      .hero h1{ font-size: clamp(36px, 16vw, 64px); }
     }
   </style>
 </head>
 <body>
 
- 
-
- <!-- Navbar -->
+  <!-- NOTE: floating-icons placed INSIDE hero so they appear only on home -->
+  <!-- ---------- HERO ---------- -->
   <header>
     <nav>
       <ul>
@@ -343,21 +223,22 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <div id="hero" class="hero" data-aos="fade-in">
-    <h1>Sonali Sahu</h1>
-    <div class="subtitle">Backend Developer | System Design Enthusiast</div>
-    <p>🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
+  <section id="hero" class="hero" data-aos="fade-in">
+    <!-- floating icons (only here) -->
+    <div class="floating-icons" aria-hidden="true">
+      <span>🚀</span>
+      <span>💻</span>
+      <span>🔥</span>
+      <span>⚡</span>
+    </div>
 
-     <!-- Floating Emojis -->
-  <div class="floating-icons">
-    <span>🚀</span>
-    <span>💻</span>
-    <span>🔥</span>
-    <span>⚡</span>
-  </div>
-    
-    <div class="tags">
+    <h1>Sonali Sahu</h1>
+
+    <div class="subtitle">Backend Developer | System Design Enthusiast</div>
+
+    <p class="description">🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
+
+    <div class="tags" aria-hidden="false">
       <span>Java</span>
       <span>Spring Boot</span>
       <span>Node.js</span>
@@ -371,202 +252,193 @@
     </div>
 
     <p class="scroll-text">↓ Scroll to explore ↓</p>
-  </div>
+  </section>
 
-  <!-- Skills Section -->
-<section id="skills" data-aos="fade-up">
-  <h2>Technical Expertise</h2>
-  <div class="skills-grid">
+  <!-- ---------- Skills Section ---------- -->
+  <section id="skills" data-aos="fade-up">
+    <h2>Technical Expertise</h2>
+    <div class="skills-grid">
+      <!-- Programming Languages -->
+      <div class="skill-card">
+        <h3>💻 Programming Languages</h3>
+        <div class="progress-item"><span>Java</span><span>95%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
 
-    <!-- Programming Languages -->
-    <div class="skill-card">
-      <h3>💻 Programming Languages</h3>
-      <div class="progress-item"><span>Java</span><span>95%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
+        <div class="progress-item"><span>JavaScript</span><span>90%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
 
-      <div class="progress-item"><span>JavaScript</span><span>90%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
+        <div class="progress-item"><span>Python</span><span>85%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
+      </div>
 
-      <div class="progress-item"><span>Python</span><span>85%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
-    </div>
+      <!-- Backend & APIs -->
+      <div class="skill-card">
+        <h3>⚡ Backend & APIs</h3>
+        <div class="progress-item"><span>Node.js</span><span>90%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
 
-    <!-- Backend & APIs -->
-    <div class="skill-card">
-      <h3>⚡ Backend & APIs</h3>
-      <div class="progress-item"><span>Node.js</span><span>90%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
+        <div class="progress-item"><span>Spring Boot</span><span>88%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
 
-      <div class="progress-item"><span>Spring Boot</span><span>88%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
+        <div class="progress-item"><span>RESTful APIs</span><span>95%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
 
-      <div class="progress-item"><span>RESTful APIs</span><span>95%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
+        <div class="progress-item"><span>GraphQL</span><span>85%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
 
-      <div class="progress-item"><span>GraphQL</span><span>85%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
+        <div class="progress-item"><span>JUnit, Chai, Protractor</span><span>85%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
+      </div>
 
-      <div class="progress-item"><span>JUnit, Chai, Protractor</span><span>85%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
-    </div>
+      <!-- Databases -->
+      <div class="skill-card">
+        <h3>🗄️ Databases</h3>
+        <div class="progress-item"><span>Relational DBs (SQL)</span><span>90%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:90%"></div></div>
 
-    <!-- Databases -->
-    <div class="skill-card">
-      <h3>🗄️ Databases</h3>
-      <div class="progress-item"><span>Relational DBs (SQL)</span><span>90%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:90%"></div></div>
+        <div class="progress-item"><span>MongoDB</span><span>85%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
 
-      <div class="progress-item"><span>MongoDB</span><span>85%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
+        <div class="progress-item"><span>Cosmos DB</span><span>80%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:80%"></div></div>
 
-      <div class="progress-item"><span>Cosmos DB</span><span>80%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:80%"></div></div>
+        <div class="progress-item"><span>Redis Cache</span><span>82%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
+      </div>
 
-      <div class="progress-item"><span>Redis Cache</span><span>82%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
-    </div>
+      <!-- Cloud & DevOps -->
+      <div class="skill-card">
+        <h3>☁️ Cloud & DevOps</h3>
+        <div class="progress-item"><span>Kubernetes</span><span>85%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
 
-    <!-- Cloud & DevOps -->
-    <div class="skill-card">
-      <h3>☁️ Cloud & DevOps</h3>
-      <div class="progress-item"><span>Kubernetes</span><span>85%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
+        <div class="progress-item"><span>Azure</span><span>82%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
 
-      <div class="progress-item"><span>Azure</span><span>82%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
+        <div class="progress-item"><span>GCP & BigQuery</span><span>88%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
 
-      <div class="progress-item"><span>GCP & BigQuery</span><span>88%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
+        <div class="progress-item"><span>Kafka</span><span>90%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:90%"></div></div>
+      </div>
 
-      <div class="progress-item"><span>Kafka</span><span>90%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:90%"></div></div>
-    </div>
+      <!-- Data Science & ML -->
+      <div class="skill-card">
+        <h3>📊 Data Science & ML</h3>
+        <div class="progress-item"><span>Tableau</span><span>80%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:80%"></div></div>
 
-    <!-- Data Science & ML -->
-    <div class="skill-card">
-      <h3>📊 Data Science & ML</h3>
-      <div class="progress-item"><span>Tableau</span><span>80%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:80%"></div></div>
+        <div class="progress-item"><span>Anaconda & Google Colab</span><span>78%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:78%"></div></div>
 
-      <div class="progress-item"><span>Anaconda & Google Colab</span><span>78%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:78%"></div></div>
+        <div class="progress-item"><span>Regression (Linear & Logistic)</span><span>85%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
 
-      <div class="progress-item"><span>Regression (Linear & Logistic)</span><span>85%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
+        <div class="progress-item"><span>Classification, Decision Trees</span><span>82%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:82%"></div></div>
 
-      <div class="progress-item"><span>Classification, Decision Trees</span><span>82%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:82%"></div></div>
+        <div class="progress-item"><span>Clustering</span><span>80%</span></div>
+        <div class="progress-bar"><div class="progress blue" style="width:80%"></div></div>
+      </div>
 
-      <div class="progress-item"><span>Clustering</span><span>80%</span></div>
-      <div class="progress-bar"><div class="progress blue" style="width:80%"></div></div>
-    </div>
+      <!-- Tools -->
+      <div class="skill-card">
+        <h3>🛠️ Tools & Monitoring</h3>
+        <div class="progress-item"><span>Postman</span><span>90%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
 
-    <!-- Tools -->
-    <div class="skill-card">
-      <h3>🛠️ Tools & Monitoring</h3>
-      <div class="progress-item"><span>Postman</span><span>90%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
+        <div class="progress-item"><span>Git</span><span>95%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
 
-      <div class="progress-item"><span>Git</span><span>95%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
+        <div class="progress-item"><span>Splunk</span><span>80%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:80%"></div></div>
 
-      <div class="progress-item"><span>Splunk</span><span>80%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:80%"></div></div>
+        <div class="progress-item"><span>Dialogflow / Kommunicate</span><span>78%</span></div>
+        <div class="progress-bar"><div class="progress green" style="width:78%"></div></div>
+      </div>
 
-      <div class="progress-item"><span>Dialogflow / Kommunicate</span><span>78%</span></div>
-      <div class="progress-bar"><div class="progress green" style="width:78%"></div></div>
-    </div>
+      <!-- CS Fundamentals -->
+      <div class="skill-card">
+        <h3>📚 Computer Science Fundamentals</h3>
+        <div class="progress-item"><span>Data Structures & Algorithms</span><span>95%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:95%"></div></div>
 
-    <!-- CS Fundamentals -->
-    <div class="skill-card">
-      <h3>📚 Computer Science Fundamentals</h3>
-      <div class="progress-item"><span>Data Structures & Algorithms</span><span>95%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:95%"></div></div>
-
-      <div class="progress-item"><span>Object Oriented Programming</span><span>92%</span></div>
-      <div class="progress-bar"><div class="progress purple" style="width:92%"></div></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Experience -->
-<section id="experience" data-aos="fade-up">
-  <h2>Professional Experience</h2>
-  <div class="experience">
-
-    <!-- Microsoft -->
-    <div class="job">
-      <img src="microsoft-logo.png" alt="Microsoft">
-      <div class="job-info">
-        <h3>Software Engineer II – Microsoft, India</h3>
-        <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
-        <ul>
-          <li>Worked on Intune, a product that manages Microsoft devices using services like Outlook, Office 365 etc.</li>
-          <li>Service Modernization Team focuses on migrating Intune's data from Reliable Collection (RC) to Cosmos DB and modernizing its underlying architecture.</li>
-          <li>Led the migration of 19GB of data for two services from RC to Cosmos DB, ensuring smooth transition with minimal downtime and zero data loss.</li>
-          <li>Migrated critical components including the SQL connector (for pushing Intune data to SQL warehouses for analytics) and service components from RC to Cosmos DB.</li>
-          <li>Worked across multiple testing environments (oneDF, SH, CTIP) to validate and deploy services; successfully migrated data for two providers to oneDF & SH with ongoing deployment in CTIP.</li>
-          <li>Collaborated with cross-functional teams to ensure project success and authored comprehensive documentation for knowledge sharing and onboarding.</li>
-        </ul>
+        <div class="progress-item"><span>Object Oriented Programming</span><span>92%</span></div>
+        <div class="progress-bar"><div class="progress purple" style="width:92%"></div></div>
       </div>
     </div>
+  </section>
 
-    <!-- Walmart SE III -->
-    <div class="job">
-      <img src="walmart-logo.png" alt="Walmart">
-      <div class="job-info">
-        <h3>Software Engineer III – Walmart Global Tech, India</h3>
-        <p><em>Reach & Product Recall | Aug 2022 – May 2024</em></p>
-        <ul>
-          <li>Developed a form-building platform allowing users to build forms with customizable fields (drag & drop) and configurable rules, with submit & scheduled notifications.</li>
-          <li>Led onboarding and development of integrations with Google Cloud Platform (GCP), fetching data from BigQuery (BQ) for backend operations.</li>
-          <li>Spearheaded development and management of APIs, improving processing time and system performance.</li>
-          <li>Collaborated with cross-functional teams to implement validations and 3rd party integrations, ensuring smooth functionality and user experience.</li>
-          <li>Proactively monitored application health in CI/CD pipelines, ensuring stable deployments and robust production performance.</li>
-          <li>Optimized backend processes, enhanced performance, and ensured a reliable user experience.</li>
-        </ul>
+  <!-- ---------- Experience ---------- -->
+  <section id="experience" data-aos="fade-up">
+    <h2>Professional Experience</h2>
+    <div class="experience">
+      <div class="job">
+        <img src="microsoft-logo.png" alt="Microsoft">
+        <div class="job-info">
+          <h3>Software Engineer II – Microsoft, India</h3>
+          <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
+          <ul>
+            <li>Worked on Intune, a product that manages Microsoft devices using services like Outlook, Office 365 etc.</li>
+            <li>Service Modernization Team focuses on migrating Intune's data from Reliable Collection (RC) to Cosmos DB and modernizing its underlying architecture.</li>
+            <li>Led the migration of 19GB of data for two services from RC to Cosmos DB, ensuring smooth transition with minimal downtime and zero data loss.</li>
+            <li>Migrated critical components including the SQL connector (for pushing Intune data to SQL warehouses for analytics) and service components from RC to Cosmos DB.</li>
+            <li>Worked across multiple testing environments (oneDF, SH, CTIP) to validate and deploy services; successfully migrated data for two providers to oneDF &amp; SH with ongoing deployment in CTIP.</li>
+            <li>Collaborated with cross-functional teams to ensure project success and authored comprehensive documentation for knowledge sharing and onboarding.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <img src="walmart-logo.png" alt="Walmart">
+        <div class="job-info">
+          <h3>Software Engineer III – Walmart Global Tech, India</h3>
+          <p><em>Reach &amp; Product Recall | Aug 2022 – May 2024</em></p>
+          <ul>
+            <li>Developed a form-building platform allowing users to build forms with customizable fields (drag &amp; drop) and configurable rules, with submit & scheduled notifications.</li>
+            <li>Led onboarding and development of integrations with Google Cloud Platform (GCP), fetching data from BigQuery (BQ) for backend operations.</li>
+            <li>Spearheaded development and management of APIs, improving processing time and system performance.</li>
+            <li>Collaborated with cross-functional teams to implement validations and 3rd party integrations, ensuring smooth functionality and user experience.</li>
+            <li>Proactively monitored application health in CI/CD pipelines, ensuring stable deployments and robust production performance.</li>
+            <li>Optimized backend processes, enhanced performance, and ensured a reliable user experience.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <img src="walmart-logo.png" alt="Walmart">
+        <div class="job-info">
+          <h3>Software Engineer II – Walmart Global Tech, India</h3>
+          <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
+          <ul>
+            <li>Worked on systems for recalls and withdrawals from Walmart and Sam’s Club locations, managing intake requests and escalation flows.</li>
+            <li>Developed backend REST APIs &amp; GraphQL queries integrating with SQL and 3rd party systems.</li>
+            <li>Designed &amp; developed real-time and scheduled Kafka-based email notifications to store users, deployed on Kubernetes.</li>
+            <li>Created cron jobs for syncing SQL data to Kafka and scheduling updates from XML files to Redis cache.</li>
+            <li>Wrote unit tests using JUnit and Chai frameworks to ensure high code quality.</li>
+            <li>Designed and developed backend GraphQL APIs integrated with Kafka and Azure DB.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <img src="walmart-logo.png" alt="Walmart">
+        <div class="job-info">
+          <h3>Software Development Intern – Walmart Global Tech, India</h3>
+          <p><em>Skywalker | Jan 2020 – Jul 2020</em></p>
+          <ul>
+            <li>Developed REST APIs to handle supplier agreements for Walmart Global Support Management.</li>
+            <li>Built an end-to-end chatbot using Dialogflow to resolve supplier queries and assist onboarding.</li>
+            <li>Enabled omni-channel supplier experience across Walmart Inc.</li>
+            <li>Wrote unit tests using JUnit with 95% coverage.</li>
+            <li>Received Pre-Placement Offer (PPO) in July 2020 for strong performance.</li>
+          </ul>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Walmart SE II -->
-    <div class="job">
-      <img src="walmart-logo.png" alt="Walmart">
-      <div class="job-info">
-        <h3>Software Engineer II – Walmart Global Tech, India</h3>
-        <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
-        <ul>
-          <li>Worked on systems for recalls and withdrawals from Walmart and Sam’s Club locations, managing intake requests and escalation flows.</li>
-          <li>Developed backend REST APIs & GraphQL queries integrating with SQL and 3rd party systems.</li>
-          <li>Designed & developed real-time and scheduled Kafka-based email notifications to store users, deployed on Kubernetes.</li>
-          <li>Created cron jobs for syncing SQL data to Kafka and scheduling updates from XML files to Redis cache.</li>
-          <li>Wrote unit tests using JUnit and Chai frameworks to ensure high code quality.</li>
-          <li>Designed and developed backend GraphQL APIs integrated with Kafka and Azure DB.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Walmart Intern -->
-    <div class="job">
-      <img src="walmart-logo.png" alt="Walmart">
-      <div class="job-info">
-        <h3>Software Development Intern – Walmart Global Tech, India</h3>
-        <p><em>Skywalker | Jan 2020 – Jul 2020</em></p>
-        <ul>
-          <li>Developed REST APIs to handle supplier agreements for Walmart Global Support Management.</li>
-          <li>Built an end-to-end chatbot using Dialogflow to resolve supplier queries and assist onboarding.</li>
-          <li>Enabled omni-channel supplier experience across Walmart Inc.</li>
-          <li>Wrote unit tests using JUnit with 95% coverage.</li>
-          <li>Received Pre-Placement Offer (PPO) in July 2020 for strong performance.</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-  <!-- Projects -->
+  <!-- ---------- Projects ---------- -->
   <section id="projects" data-aos="fade-up">
     <h2>Personal Projects</h2>
     <div class="projects">
@@ -580,12 +452,12 @@
       </div>
       <div class="project-card">
         <img src="project3.jpg" alt="Macroprocessor">
-        <div class="project-info">Macroprocessor (Two-Pass & Stack)</div>
+        <div class="project-info">Macroprocessor (Two-Pass &amp; Stack)</div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- ---------- Contact ---------- -->
   <section id="contact" class="contact" data-aos="fade-up">
     <h2>Let’s Build Something Amazing</h2>
     <p>Looking for a developer who can create high-performance, interactive web experiences?</p>
@@ -595,7 +467,6 @@
     <a href="https://github.com/sonali1987" target="_blank">GitHub</a>
   </section>
 
-  <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
