@@ -82,7 +82,7 @@
       margin: 0.5rem auto 0;
     }
 
-    /* Skills */
+    /* Technical Expertise */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
@@ -90,17 +90,30 @@
       gap: 2rem;
     }
     .skill-card {
-      flex: 1 1 280px;
+      flex: 1 1 300px;
       background: #f9f9f9;
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .skill-card h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
     }
+    .progress-bar {
+      background: #eee;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 10px;
+      margin-bottom: 1rem;
+    }
+    .progress {
+      height: 10px;
+      border-radius: 5px;
+    }
+    .blue { background: #4a90e2; }
+    .green { background: #4caf50; }
+    .purple { background: #9c27b0; }
 
     /* Experience */
     .experience { display: grid; gap: 2rem; }
@@ -186,26 +199,39 @@
     <p>Software Engineer | Backend Developer | API & System Design</p>
   </div>
 
-  <!-- Skills -->
+  <!-- Technical Expertise -->
   <section id="skills" data-aos="fade-up">
     <h2>Technical Expertise</h2>
     <div class="skills-container">
+      
       <div class="skill-card">
-        <h3>💻 Programming</h3>
-        <p>Java, Python, JavaScript, Node.js, Spring Boot</p>
+        <h3>🎨 Frontend Development</h3>
+        <p>JavaScript, React, Modern CSS</p>
+        <div class="progress-bar"><div class="progress blue" style="width: 90%"></div></div>
+        <p>Web Animation</p>
+        <div class="progress-bar"><div class="progress blue" style="width: 85%"></div></div>
       </div>
+
       <div class="skill-card">
-        <h3>🗄️ Databases</h3>
-        <p>SQL, NoSQL, MongoDB, Cosmos DB, Redis</p>
+        <h3>⚡ Backend & APIs</h3>
+        <p>Java, Node.js, Spring Boot</p>
+        <div class="progress-bar"><div class="progress green" style="width: 95%"></div></div>
+        <p>RESTful APIs & GraphQL</p>
+        <div class="progress-bar"><div class="progress green" style="width: 90%"></div></div>
+        <p>Database Design (SQL, NoSQL, CosmosDB, Redis)</p>
+        <div class="progress-bar"><div class="progress green" style="width: 88%"></div></div>
       </div>
+
       <div class="skill-card">
-        <h3>☁️ Cloud & DevOps</h3>
-        <p>Azure, Kubernetes, GCP, Kafka, CI/CD</p>
+        <h3>🚀 Cloud & DevOps</h3>
+        <p>Azure, Kubernetes, Kafka, GCP</p>
+        <div class="progress-bar"><div class="progress purple" style="width: 90%"></div></div>
+        <p>CI/CD, Git, Postman</p>
+        <div class="progress-bar"><div class="progress purple" style="width: 85%"></div></div>
+        <p>Monitoring & Logging (Splunk)</p>
+        <div class="progress-bar"><div class="progress purple" style="width: 80%"></div></div>
       </div>
-      <div class="skill-card">
-        <h3>⚡ Tools</h3>
-        <p>JUnit, GraphQL, REST APIs, Git, Postman</p>
-      </div>
+
     </div>
   </section>
 
