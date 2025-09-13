@@ -39,6 +39,22 @@
     }
     nav a:hover, nav a.active { color: #004aad; }
 
+    /* Floating Background Icons */
+    .floating-icons img {
+      position: absolute;
+      width: 40px;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.8;
+    }
+    .floating-icons .rocket { top: 20%; left: 85%; animation-delay: 0s; }
+    .floating-icons .laptop { top: 70%; left: 10%; animation-delay: 2s; }
+    .floating-icons .fire { top: 80%; left: 90%; animation-delay: 4s; }
+    .floating-icons .bolt { top: 30%; left: 5%; animation-delay: 6s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
     /* Hero */
     .hero {
       height: 100vh;
@@ -48,14 +64,26 @@
       align-items: center;
       text-align: center;
       background: linear-gradient(180deg, #fafafa, #fff);
+      position: relative;
+      overflow: hidden;
     }
-    .hero h1 {
-      font-size: 3rem;
+    .gradient-text {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #4a90e2, #9c27b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #444;
       margin-bottom: 1rem;
-      font-weight: bold;
     }
-    .hero p {
-      font-size: 1.2rem;
+    .tagline {
+      font-size: 1.1rem;
+      color: #666;
       margin-bottom: 2rem;
     }
     .hero .tags {
@@ -87,8 +115,13 @@
       background: #eee;
       color: #333;
     }
+    .scroll-hint {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
-    /* Skills Section (Modern Style) */
+    /* Skills Section */
     #skills {
       background: #f7f8fa;
       padding: 5rem 1rem;
@@ -226,11 +259,21 @@
     </nav>
   </header>
 
+  <!-- Floating Background Icons -->
+  <div class="floating-icons">
+    <img src="assets/rocket.png" class="icon rocket" alt="rocket" />
+    <img src="assets/laptop.png" class="icon laptop" alt="laptop" />
+    <img src="assets/fire.png" class="icon fire" alt="fire" />
+    <img src="assets/bolt.png" class="icon bolt" alt="bolt" />
+  </div>
+
   <!-- Hero Section -->
   <div id="hero" class="hero" data-aos="fade-in">
-    <h1>Sonali Sahu</h1>
-    <p><strong>Software Engineer | Backend Developer | System Design Enthusiast</strong></p>
-    <p>🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
+    <h1 class="gradient-text">Sonali Sahu</h1>
+    <h2 class="subtitle">Software Engineer | Backend Developer | System Design Enthusiast</h2>
+    <p class="tagline">🔥 Crafting scalable backend systems, APIs & modern cloud solutions</p>
+
+    <!-- Tags -->
     <div class="tags">
       <span>Java</span>
       <span>Spring Boot</span>
@@ -238,11 +281,15 @@
       <span>Kafka</span>
       <span>Azure</span>
     </div>
+
+    <!-- Buttons -->
     <div class="buttons">
       <a href="#projects" class="primary">View My Work →</a>
       <a href="#contact" class="secondary">Get in Touch</a>
     </div>
-    <p style="margin-top:2rem; font-size:0.9rem; color:#555;">↓ Scroll to explore ↓</p>
+
+    <!-- Scroll Hint -->
+    <p class="scroll-hint">↓ Scroll to explore ↓</p>
   </div>
 
   <!-- Skills Section -->
