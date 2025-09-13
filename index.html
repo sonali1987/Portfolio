@@ -37,7 +37,7 @@
       font-weight: 600;
       transition: color 0.3s;
     }
-    nav a:hover, nav a.active { color: #6a11cb; }
+    nav a:hover, nav a.active { color: #004aad; }
 
     /* Hero Section */
     .hero {
@@ -47,19 +47,71 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(to bottom right, #f9fafb, #ffffff);
+      color: #222;
+      position: relative;
+      overflow: hidden;
     }
-    .hero h1 {
-      font-size: 4rem;
-      background: linear-gradient(90deg, #6a11cb, #2575fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0;
+    .hero h1 { font-size: 3rem; margin: 0; }
+    .hero h3 { font-size: 1.5rem; margin: 0.5rem 0; color: #004aad; }
+    .hero p { font-size: 1.1rem; margin-bottom: 1rem; }
+
+    .tags {
+      margin: 1rem 0;
     }
-    .hero p {
-      font-size: 1.3rem;
-      margin-top: 10px;
-      color: #444;
+    .tags span {
+      display: inline-block;
+      margin: 0.3rem;
+      padding: 0.4rem 0.8rem;
+      background: #f0f0f0;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .buttons .btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn {
+      background: linear-gradient(90deg, #4a90e2, #9c27b0);
+      color: #fff;
+    }
+    .btn.secondary {
+      background: #eee;
+      color: #333;
+    }
+    .scroll {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Floating Emoji Icons */
+    .floating-icons {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .floating-icons span {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 15s linear infinite;
+      opacity: 0.8;
+    }
+    .floating-icons span:nth-child(1) { top: 20%; left: 10%; animation-duration: 18s; }
+    .floating-icons span:nth-child(2) { top: 60%; left: 80%; animation-duration: 22s; }
+    .floating-icons span:nth-child(3) { top: 40%; left: 50%; animation-duration: 25s; }
+    .floating-icons span:nth-child(4) { top: 75%; left: 20%; animation-duration: 20s; }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(0deg); }
+      50%  { transform: translateY(-30px) rotate(20deg); }
+      100% { transform: translateY(0) rotate(-20deg); }
     }
 
     section {
@@ -77,39 +129,37 @@
       content: '';
       width: 60px;
       height: 3px;
-      background: #6a11cb;
+      background: #004aad;
       display: block;
       margin: 0.5rem auto 0;
     }
 
     /* Technical Expertise */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    .skill-card {
-      flex: 1 1 300px;
+    .skill-box {
       background: #f9f9f9;
+      border-radius: 12px;
       padding: 1.5rem;
-      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .skill-card h3 {
-      margin: 0 0 1rem;
-      font-size: 1.3rem;
+    .skill-box h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
     .progress-bar {
       background: #eee;
       border-radius: 5px;
       overflow: hidden;
       height: 10px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
     .progress {
       height: 10px;
-      border-radius: 5px;
     }
     .blue { background: #4a90e2; }
     .green { background: #4caf50; }
@@ -125,12 +175,9 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .job img {
-      width: 70px; height: 70px;
-      object-fit: contain;
-    }
+    .job img { width: 80px; height: 80px; object-fit: contain; }
     .job-info { flex: 1; }
-    .job-info h3 { margin: 0; color: #6a11cb; }
+    .job-info h3 { margin: 0; color: #004aad; }
     .job-info ul { margin: 0.5rem 0 0 1rem; }
 
     /* Projects */
@@ -170,7 +217,7 @@
       padding: 0.7rem 1.5rem;
       text-decoration: none;
       border-radius: 25px;
-      background: linear-gradient(90deg, #6a11cb, #2575fc);
+      background: linear-gradient(90deg, #4a90e2, #9c27b0);
       color: #fff;
       font-weight: bold;
       transition: 0.3s;
@@ -195,43 +242,70 @@
 
   <!-- Hero Section -->
   <div id="hero" class="hero" data-aos="fade-in">
+    <div class="floating-icons">
+      <span>🚀</span>
+      <span>💻</span>
+      <span>🔥</span>
+      <span>⚡</span>
+    </div>
+
     <h1>Sonali Sahu</h1>
-    <p>Software Engineer | Backend Developer | API & System Design</p>
+    <h3>Software Engineer | Backend Developer | System Design Enthusiast</h3>
+    <p>Crafting scalable backend systems, APIs & modern cloud solutions</p>
+    
+    <div class="tags">
+      <span>Java</span>
+      <span>Spring Boot</span>
+      <span>Node.js</span>
+      <span>Kafka</span>
+      <span>Azure</span>
+    </div>
+
+    <div class="buttons">
+      <a href="#projects" class="btn">View My Work →</a>
+      <a href="#contact" class="btn secondary">Get in Touch</a>
+    </div>
+
+    <p class="scroll">↓ Scroll to explore ↓</p>
   </div>
 
   <!-- Technical Expertise -->
   <section id="skills" data-aos="fade-up">
     <h2>Technical Expertise</h2>
-    <div class="skills-container">
-      
-      <div class="skill-card">
+    <div class="skills-grid">
+      <div class="skill-box">
         <h3>🎨 Frontend Development</h3>
-        <p>JavaScript, React, Modern CSS</p>
-        <div class="progress-bar"><div class="progress blue" style="width: 90%"></div></div>
+        <p>React & Next.js</p>
+        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
+        <p>TypeScript</p>
+        <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
+        <p>Modern CSS</p>
+        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
         <p>Web Animation</p>
-        <div class="progress-bar"><div class="progress blue" style="width: 85%"></div></div>
+        <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
       </div>
-
-      <div class="skill-card">
+      <div class="skill-box">
         <h3>⚡ Backend & APIs</h3>
-        <p>Java, Node.js, Spring Boot</p>
-        <div class="progress-bar"><div class="progress green" style="width: 95%"></div></div>
-        <p>RESTful APIs & GraphQL</p>
-        <div class="progress-bar"><div class="progress green" style="width: 90%"></div></div>
-        <p>Database Design (SQL, NoSQL, CosmosDB, Redis)</p>
-        <div class="progress-bar"><div class="progress green" style="width: 88%"></div></div>
+        <p>Node.js</p>
+        <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
+        <p>RESTful APIs</p>
+        <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
+        <p>GraphQL</p>
+        <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
+        <p>Database Design</p>
+        <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
       </div>
-
-      <div class="skill-card">
-        <h3>🚀 Cloud & DevOps</h3>
-        <p>Azure, Kubernetes, Kafka, GCP</p>
-        <div class="progress-bar"><div class="progress purple" style="width: 90%"></div></div>
-        <p>CI/CD, Git, Postman</p>
-        <div class="progress-bar"><div class="progress purple" style="width: 85%"></div></div>
-        <p>Monitoring & Logging (Splunk)</p>
-        <div class="progress-bar"><div class="progress purple" style="width: 80%"></div></div>
+      <div class="skill-box">
+        <h3>🚀 Performance & DevOps</h3>
+        <p>Web Performance</p>
+        <div class="progress-bar"><div class="progress purple" style="width:92%"></div></div>
+        <p>CI/CD</p>
+        <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
+        <p>Docker</p>
+        <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
+        <p>AWS</p>
+        <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
       </div>
-
     </div>
   </section>
 
@@ -239,7 +313,6 @@
   <section id="experience" data-aos="fade-up">
     <h2>Professional Experience</h2>
     <div class="experience">
-
       <!-- Microsoft -->
       <div class="job">
         <img src="microsoft-logo.png" alt="Microsoft">
@@ -254,7 +327,6 @@
           </ul>
         </div>
       </div>
-
       <!-- Walmart -->
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
@@ -269,7 +341,6 @@
           </ul>
         </div>
       </div>
-
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
@@ -283,7 +354,6 @@
           </ul>
         </div>
       </div>
-
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
