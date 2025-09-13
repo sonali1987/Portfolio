@@ -41,24 +41,21 @@
 
     /* Hero Section */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #222;
+      padding-top: 4rem;
       position: relative;
       overflow: hidden;
     }
-    .hero h1 { font-size: 3rem; margin: 0; }
-    .hero h3 { font-size: 1.5rem; margin: 0.5rem 0; color: #004aad; }
-    .hero p { font-size: 1.1rem; margin-bottom: 1rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .hero h2 { font-size: 1.3rem; color: #004aad; margin-bottom: 1rem; }
+    .hero p { margin-bottom: 1.5rem; font-size: 1.1rem; }
 
-    .tags {
-      margin: 1rem 0;
-    }
-    .tags span {
+    .skills-tags span {
       display: inline-block;
       margin: 0.3rem;
       padding: 0.4rem 0.8rem;
@@ -66,54 +63,39 @@
       border-radius: 20px;
       font-size: 0.9rem;
     }
-    .buttons .btn {
+
+    .hero-buttons { margin-top: 1rem; }
+    .btn {
       display: inline-block;
       margin: 0.5rem;
       padding: 0.7rem 1.5rem;
       border-radius: 25px;
-      text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      text-decoration: none;
     }
-    .btn {
+    .primary {
       background: linear-gradient(90deg, #4a90e2, #9c27b0);
-      color: #fff;
+      color: white;
     }
-    .btn.secondary {
+    .secondary {
       background: #eee;
       color: #333;
     }
-    .scroll {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
 
-    /* Floating Emoji Icons */
-    .floating-icons {
+    .scroll { margin-top: 2rem; color: gray; }
+
+    /* Floating Icons */
+    .floating-icons .icon {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .floating-icons span {
-      position: absolute;
-      font-size: 2rem;
-      animation: float 15s linear infinite;
+      font-size: 1.5rem;
       opacity: 0.8;
     }
-    .floating-icons span:nth-child(1) { top: 20%; left: 10%; animation-duration: 18s; }
-    .floating-icons span:nth-child(2) { top: 60%; left: 80%; animation-duration: 22s; }
-    .floating-icons span:nth-child(3) { top: 40%; left: 50%; animation-duration: 25s; }
-    .floating-icons span:nth-child(4) { top: 75%; left: 20%; animation-duration: 20s; }
+    .floating-icons .icon:nth-child(1) { top: 15%; left: 10%; }
+    .floating-icons .icon:nth-child(2) { bottom: 15%; right: 15%; }
+    .floating-icons .icon:nth-child(3) { top: 40%; left: 5%; }
+    .floating-icons .icon:nth-child(4) { bottom: 10%; right: 5%; }
 
-    @keyframes float {
-      0%   { transform: translateY(0) rotate(0deg); }
-      50%  { transform: translateY(-30px) rotate(20deg); }
-      100% { transform: translateY(0) rotate(-20deg); }
-    }
-
+    /* Section Wrapper */
     section {
       max-width: 1100px;
       margin: 5rem auto;
@@ -134,32 +116,36 @@
       margin: 0.5rem auto 0;
     }
 
-    /* Technical Expertise */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Skills (Technical Expertise) */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
       gap: 2rem;
+      justify-content: center;
     }
     .skill-box {
+      flex: 1 1 300px;
       background: #f9f9f9;
-      border-radius: 12px;
       padding: 1.5rem;
+      border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .skill-box h3 {
-      margin-top: 0;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .progress-bar {
       background: #eee;
       border-radius: 5px;
-      overflow: hidden;
       height: 10px;
-      margin-bottom: 0.8rem;
+      margin: 0.5rem 0 1rem;
+      overflow: hidden;
     }
     .progress {
       height: 10px;
+      border-radius: 5px;
     }
     .blue { background: #4a90e2; }
     .green { background: #4caf50; }
@@ -175,7 +161,10 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .job img { width: 80px; height: 80px; object-fit: contain; }
+    .job img {
+      width: 80px; height: 80px;
+      object-fit: contain;
+    }
     .job-info { flex: 1; }
     .job-info h3 { margin: 0; color: #004aad; }
     .job-info ul { margin: 0.5rem 0 0 1rem; }
@@ -241,19 +230,12 @@
   </header>
 
   <!-- Hero Section -->
-  <div id="hero" class="hero" data-aos="fade-in">
-    <div class="floating-icons">
-      <span>🚀</span>
-      <span>💻</span>
-      <span>🔥</span>
-      <span>⚡</span>
-    </div>
-
+  <section id="hero" class="hero" data-aos="fade-in">
     <h1>Sonali Sahu</h1>
-    <h3>Software Engineer | Backend Developer | System Design Enthusiast</h3>
+    <h2>Software Engineer | Backend Developer | System Design Enthusiast</h2>
     <p>Crafting scalable backend systems, APIs & modern cloud solutions</p>
-    
-    <div class="tags">
+
+    <div class="skills-tags">
       <span>Java</span>
       <span>Spring Boot</span>
       <span>Node.js</span>
@@ -261,49 +243,57 @@
       <span>Azure</span>
     </div>
 
-    <div class="buttons">
-      <a href="#projects" class="btn">View My Work →</a>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn primary">View My Work →</a>
       <a href="#contact" class="btn secondary">Get in Touch</a>
     </div>
 
     <p class="scroll">↓ Scroll to explore ↓</p>
-  </div>
 
-  <!-- Technical Expertise -->
+    <!-- Floating icons -->
+    <div class="floating-icons">
+      <span class="icon">🚀</span>
+      <span class="icon">💻</span>
+      <span class="icon">⚡</span>
+      <span class="icon">🔥</span>
+    </div>
+  </section>
+
+  <!-- Skills -->
   <section id="skills" data-aos="fade-up">
     <h2>Technical Expertise</h2>
-    <div class="skills-grid">
+    <div class="skills-wrapper">
       <div class="skill-box">
         <h3>🎨 Frontend Development</h3>
-        <p>React & Next.js</p>
+        React & Next.js
         <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
-        <p>TypeScript</p>
+        TypeScript
         <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
-        <p>Modern CSS</p>
+        Modern CSS
         <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
-        <p>Web Animation</p>
+        Web Animation
         <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
       </div>
       <div class="skill-box">
         <h3>⚡ Backend & APIs</h3>
-        <p>Node.js</p>
+        Node.js
         <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
-        <p>RESTful APIs</p>
+        RESTful APIs
         <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
-        <p>GraphQL</p>
+        GraphQL
         <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
-        <p>Database Design</p>
+        Database Design
         <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
       </div>
       <div class="skill-box">
         <h3>🚀 Performance & DevOps</h3>
-        <p>Web Performance</p>
+        Web Performance
         <div class="progress-bar"><div class="progress purple" style="width:92%"></div></div>
-        <p>CI/CD</p>
+        CI/CD
         <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
-        <p>Docker</p>
+        Docker
         <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
-        <p>AWS</p>
+        AWS
         <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
       </div>
     </div>
@@ -313,6 +303,7 @@
   <section id="experience" data-aos="fade-up">
     <h2>Professional Experience</h2>
     <div class="experience">
+
       <!-- Microsoft -->
       <div class="job">
         <img src="microsoft-logo.png" alt="Microsoft">
@@ -327,6 +318,7 @@
           </ul>
         </div>
       </div>
+
       <!-- Walmart -->
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
@@ -341,6 +333,7 @@
           </ul>
         </div>
       </div>
+
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
@@ -354,6 +347,7 @@
           </ul>
         </div>
       </div>
+
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
