@@ -73,23 +73,25 @@
   margin-bottom: 2.5rem;
 }
 
-.projects-grid {
+/* Personal Projects one-line layout */
+#projects .projects {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: nowrap;   /* keep everything in one line */
-  overflow-x: auto;    /* scroll if screen is small */
-  padding-bottom: 1rem;
+  overflow-x: auto;
+  padding: 1rem;
+  flex-wrap: nowrap; /* keep in one row */
 }
 
-.projects-grid::-webkit-scrollbar {
+#projects .projects::-webkit-scrollbar {
   height: 8px;
 }
-.projects-grid::-webkit-scrollbar-thumb {
-  background: #ccc;
+#projects .projects::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #4a90e2, #9c27b0);
   border-radius: 4px;
+}
+#projects .projects::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
 
