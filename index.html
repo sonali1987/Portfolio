@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonali Sahu | Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #004aad;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 4px solid #fff;
+    }
+
+    header h1 {
+      margin: 1rem 0 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      color: #004aad;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #004aad;
+      display: inline-block;
+      padding-bottom: 0.2rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      margin: 0.8rem;
+      color: #222;
+    }
+
+    .project-card p {
+      margin: 0.5rem 0.8rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .contact {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      background: #004aad;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .contact a:hover {
+      background: #003080;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Free stock profile photo -->
+    <img src="https://picsum.photos/200/200?grayscale" alt="Profile">
+    <h1>Sonali Sahu</h1>
+    <p>Software Engineer | Backend Developer | API & System Design Enthusiast</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I am a backend-focused software engineer with experience at Microsoft and Walmart Global Tech.
+      Skilled in Java, Python, Node.js, Spring Boot, Kafka, SQL/NoSQL, and cloud platforms like Azure and GCP. 
+      I specialize in designing scalable systems, building reliable APIs, and optimizing platform performance.
+    </p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://picsum.photos/id/1011/400/200" alt="Invoice Automation">
+        <h3>Invoice Automation</h3>
+        <p>Automated PDF invoice distribution system integrated with backend services.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://picsum.photos/id/1040/400/200" alt="Chatbot with Dialogflow">
+        <h3>Chatbot with Dialogflow</h3>
+        <p>End-to-end chatbot for supplier onboarding and support using Dialogflow + APIs.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://picsum.photos/id/1039/400/200" alt="Kafka Notification Service">
+        <h3>Kafka Notification Service</h3>
+        <p>Real-time event-driven system for store notifications built on Kafka and Redis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <a href="mailto:sonalisahu2309@gmail.com">Email Me</a>
+    <a href="https://linkedin.com/in/sonali-sahu-209b69156" target="_blank">LinkedIn</a>
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+  </section>
+</body>
+</html>
