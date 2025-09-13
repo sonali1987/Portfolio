@@ -73,27 +73,59 @@
   margin-bottom: 2.5rem;
 }
 
-/* Personal Projects one-line layout */
+/* Personal Projects Section */
+#projects {
+  padding: 5rem 1rem;
+  background: #f7f8fa;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Flex row layout */
 #projects .projects {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 2rem;
-  overflow-x: auto;
+  flex-wrap: nowrap;   /* keep all in one line */
+  overflow-x: auto;    /* allows horizontal scroll if too many */
+  padding-bottom: 1rem;
+}
+
+/* Card style */
+.project-card {
+  flex: 0 0 300px; /* fixed medium size */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Image on top */
+.project-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Project info */
+.project-info {
   padding: 1rem;
-  flex-wrap: nowrap; /* keep in one row */
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
 }
-
-#projects .projects::-webkit-scrollbar {
-  height: 8px;
-}
-#projects .projects::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #4a90e2, #9c27b0);
-  border-radius: 4px;
-}
-#projects .projects::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
 
 
 .card {
@@ -585,42 +617,21 @@
     </div>
   </section>
 
-  <section id="projects" data-aos="fade-up">
-  <h2 class="section-title">Personal Projects</h2>
-  <div class="projects-grid">
-    
-    <section id="projects" data-aos="fade-up">
-  <h2 class="section-title">Personal Projects</h2>
-  <div class="projects-grid">
-    
-    <!-- Project Card -->
+<section id="projects" data-aos="fade-up">
+  <h2>Personal Projects</h2>
+  <div class="projects">
     <div class="project-card">
-      <img src="project1.jpg" alt="Web Scraper" />
-      <div class="project-content">
-        <p class="category">Cloud</p>
-        <h3>Web Scraper with Selenium + AWS Lambda</h3>
-        <p>Built a scalable scraper deployed on AWS Lambda to automate data extraction.</p>
-      </div>
+      <img src="project1.jpg" alt="Web Scraper">
+      <div class="project-info">Web Scraper with Selenium + AWS Lambda</div>
     </div>
-
     <div class="project-card">
-      <img src="project2.jpg" alt="Handwriting Recognition" />
-      <div class="project-content">
-        <p class="category">Machine Learning</p>
-        <h3>Handwritten Character Recognition</h3>
-        <p>Achieved 98% accuracy using deep learning models for handwriting recognition.</p>
-      </div>
+      <img src="project2.jpg" alt="Handwritten Recognition">
+      <div class="project-info">Handwritten Character Recognition (98% Accuracy)</div>
     </div>
-
     <div class="project-card">
-      <img src="project3.jpg" alt="Macroprocessor" />
-      <div class="project-content">
-        <p class="category">Compilers</p>
-        <h3>Macroprocessor (Two-Pass & Stack)</h3>
-        <p>Implemented a compiler macroprocessor with two-pass & stack-based processing.</p>
-      </div>
+      <img src="project3.jpg" alt="Macroprocessor">
+      <div class="project-info">Macroprocessor (Two-Pass & Stack)</div>
     </div>
-
   </div>
 </section>
 
