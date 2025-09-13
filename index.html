@@ -12,7 +12,32 @@
       background: #fff;
       color: #222;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0; padding: 1rem 0;
+    }
+    nav li { margin: 0 15px; }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active { color: #004aad; }
 
     /* Hero Section */
     .hero {
@@ -25,29 +50,20 @@
       color: #fff;
       text-align: center;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-    }
+    .hero h1 { font-size: 3rem; margin: 0; }
+    .hero p { font-size: 1.2rem; }
 
     section {
       max-width: 1100px;
       margin: 5rem auto;
       padding: 0 1rem;
     }
-
     h2 {
       text-align: center;
       font-size: 2rem;
       margin-bottom: 2rem;
       position: relative;
     }
-
     h2::after {
       content: '';
       width: 60px;
@@ -64,7 +80,6 @@
       gap: 1rem;
       justify-content: center;
     }
-
     .skill {
       background: #f0f0f0;
       padding: 0.7rem 1.2rem;
@@ -73,39 +88,22 @@
     }
 
     /* Experience */
-    .experience {
-      display: grid;
-      gap: 2rem;
-    }
-
+    .experience { display: grid; gap: 2rem; }
     .job {
-      display: flex;
-      gap: 1rem;
+      display: flex; gap: 1rem;
       align-items: flex-start;
       background: #f9f9f9;
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
     .job img {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       object-fit: contain;
     }
-
-    .job-info {
-      flex: 1;
-    }
-
-    .job-info h3 {
-      margin: 0;
-      color: #004aad;
-    }
-
-    .job-info ul {
-      margin: 0.5rem 0 0 1rem;
-    }
+    .job-info { flex: 1; }
+    .job-info h3 { margin: 0; color: #004aad; }
+    .job-info ul { margin: 0.5rem 0 0 1rem; }
 
     /* Projects */
     .projects {
@@ -113,25 +111,17 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-
     .project-card {
       position: relative;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
     .project-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+      width: 100%; height: 200px; object-fit: cover;
       transition: transform 0.5s ease;
     }
-
-    .project-card:hover img {
-      transform: scale(1.1);
-    }
-
+    .project-card:hover img { transform: scale(1.1); }
     .project-info {
       position: absolute;
       bottom: 0;
@@ -143,11 +133,7 @@
     }
 
     /* Certifications */
-    .certifications ul {
-      list-style: none;
-      padding: 0;
-    }
-
+    .certifications ul { list-style: none; padding: 0; }
     .certifications li {
       background: #f9f9f9;
       padding: 0.7rem 1rem;
@@ -157,10 +143,7 @@
     }
 
     /* Contact */
-    .contact {
-      text-align: center;
-    }
-
+    .contact { text-align: center; }
     .contact a {
       margin: 0 1rem;
       text-decoration: none;
@@ -170,14 +153,30 @@
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <!-- Hero Section -->
-  <div class="hero" data-aos="fade-in">
+  <div id="hero" class="hero" data-aos="fade-in">
     <h1>Sonali Sahu</h1>
     <p>Software Engineer | Backend Developer | API & System Design</p>
   </div>
 
   <!-- Skills -->
-  <section data-aos="fade-up">
+  <section id="skills" data-aos="fade-up">
     <h2>Skills</h2>
     <div class="skills">
       <div class="skill">Java</div>
@@ -194,17 +193,16 @@
   </section>
 
   <!-- Education -->
-  <section data-aos="fade-up">
+  <section id="education" data-aos="fade-up">
     <h2>Education</h2>
     <p><strong>Masters in Data Science</strong>, BITS Pilani (2024 – Present)</p>
     <p><strong>Bachelor of Technology (IT)</strong>, Banasthali Vidyapith (2016 – 2020)</p>
   </section>
 
   <!-- Experience -->
-  <section data-aos="fade-up">
+  <section id="experience" data-aos="fade-up">
     <h2>Professional Experience</h2>
     <div class="experience">
-
       <!-- Microsoft -->
       <div class="job">
         <img src="microsoft-logo.png" alt="Microsoft">
@@ -212,15 +210,14 @@
           <h3>Software Engineer II – Microsoft, India</h3>
           <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
           <ul>
-            <li>Led migration of 19GB data from Reliable Collection (RC) to Cosmos DB with minimal downtime.</li>
-            <li>Migrated SQL connector & other service components for Intune data pipelines.</li>
+            <li>Led migration of 19GB data from RC to Cosmos DB with minimal downtime.</li>
+            <li>Migrated SQL connector & service components for Intune data pipelines.</li>
             <li>Validated and deployed services across environments (oneDF, SH, CTIP).</li>
             <li>Collaborated with cross-functional teams and authored documentation.</li>
           </ul>
         </div>
       </div>
-
-      <!-- Walmart SE III -->
+      <!-- Walmart III -->
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
@@ -228,28 +225,26 @@
           <p><em>Reach & Product Recall | Aug 2022 – May 2024</em></p>
           <ul>
             <li>Developed form-building platform with customizable fields & rules.</li>
-            <li>Integrated GCP BigQuery (BQ) for backend operations and analytics.</li>
-            <li>Built and managed APIs, improving processing time and performance.</li>
-            <li>Implemented validations, third-party integrations & proactive monitoring.</li>
+            <li>Integrated GCP BigQuery for backend operations and analytics.</li>
+            <li>Built APIs, improving processing time and performance.</li>
+            <li>Implemented validations, integrations & proactive monitoring.</li>
           </ul>
         </div>
       </div>
-
-      <!-- Walmart SE II -->
+      <!-- Walmart II -->
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
           <h3>Software Engineer II – Walmart Global Tech, India</h3>
           <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
           <ul>
-            <li>Developed backend REST APIs and GraphQL queries with integrations.</li>
-            <li>Built Kafka-based real-time & scheduled email notification system.</li>
-            <li>Created cron jobs to sync SQL data with Kafka & update Redis cache.</li>
-            <li>Authored unit tests with JUnit and Chai frameworks.</li>
+            <li>Developed REST APIs and GraphQL queries with integrations.</li>
+            <li>Built Kafka-based email notification system.</li>
+            <li>Created cron jobs to sync SQL with Kafka & Redis.</li>
+            <li>Authored unit tests with JUnit and Chai.</li>
           </ul>
         </div>
       </div>
-
       <!-- Walmart Intern -->
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
@@ -259,17 +254,16 @@
           <ul>
             <li>Developed REST APIs for supplier agreements & chatbot with Dialogflow.</li>
             <li>Delivered omni-channel experience for suppliers & merchants.</li>
-            <li>Achieved 95% JUnit test coverage for chatbot and backend services.</li>
-            <li>Received Pre-Placement Offer (PPO) in July 2020.</li>
+            <li>Achieved 95% JUnit test coverage.</li>
+            <li>Received Pre-Placement Offer in July 2020.</li>
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- Projects -->
-  <section data-aos="fade-up">
+  <section id="projects" data-aos="fade-up">
     <h2>Personal Projects</h2>
     <div class="projects">
       <div class="project-card">
@@ -288,7 +282,7 @@
   </section>
 
   <!-- Certifications -->
-  <section class="certifications" data-aos="fade-up">
+  <section id="certifications" class="certifications" data-aos="fade-up">
     <h2>Certifications & Achievements</h2>
     <ul>
       <li>Machine Learning Crash Course – Google</li>
@@ -302,20 +296,17 @@
   </section>
 
   <!-- Contact -->
-  <section class="contact" data-aos="fade-up">
+  <section id="contact" class="contact" data-aos="fade-up">
     <h2>Contact</h2>
     <a href="mailto:sonalisahu2309@gmail.com">Email</a>
     <a href="https://linkedin.com/in/sonali-sahu-209b69156" target="_blank">LinkedIn</a>
-    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="https://github.com/sonali1987" target="_blank">GitHub</a>
   </section>
 
   <!-- AOS Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    AOS.init({ duration: 1000, once: true });
   </script>
 </body>
 </html>
