@@ -49,6 +49,8 @@
       align-items: center;
       color: #fff;
       text-align: center;
+      padding-top: 60px; /* prevent navbar overlap */
+      background-color: #004aad; /* fallback if image not found */
     }
     .hero h1 { font-size: 3rem; margin: 0; }
     .hero p { font-size: 1.2rem; }
@@ -170,10 +172,10 @@
   </header>
 
   <!-- Hero Section -->
-  <div id="hero" class="hero" data-aos="fade-in">
+  <section id="hero" class="hero" data-aos="fade-in">
     <h1>Sonali Sahu</h1>
     <p>Software Engineer | Backend Developer | API & System Design</p>
-  </div>
+  </section>
 
   <!-- Skills -->
   <section id="skills" data-aos="fade-up">
@@ -307,6 +309,26 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    // Highlight active nav on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
