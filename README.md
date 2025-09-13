@@ -1,15 +1,49 @@
-# Hi, I'm Sonali 👋
+# 👋 Hi, I'm Sonali Sahu  
 
-💻 Software Developer | Backend Specialist | API & Database Enthusiast  
+💻 **Software Engineer | Backend Developer | API & System Design Enthusiast**  
 
-🔹 **Tech Stack:** Java, Python, Node.js, Spring Boot, Django, PostgreSQL, MongoDB, Kafka, Kubernetes  
-🔹 **What I Do:** Backend Development | System Design | API Development | Cloud & DevOps Practices  
+I design and build reliable backend systems, scalable APIs, and integrations that power enterprise applications.  
+With experience at **Microsoft** and **Walmart Global Tech**, I’ve worked on large-scale data migrations, backend modernization, and real-time event-driven systems.  
 
-## 🚀 Featured Projects
-- [Invoice Automation](https://github.com/yourname/invoice-automation) – Automated invoice PDF distribution pipeline.  
-- [Chatbot with Dialogflow](https://github.com/yourname/chatbot-dialogflow) – NLP-based chatbot for supplier queries.  
-- [Notification Service](https://github.com/yourname/notification-service) – Real-time Kafka-based notification system.  
+---
 
-## 📫 Connect with Me
-- [LinkedIn](https://linkedin.com/in/yourname)  
-- [Email](mailto:yourname@email.com)
+## 🔹 About Me  
+- 🎯 5+ years of experience in **backend development, APIs, and system design**  
+- 🏢 Industry experience at **Microsoft** (Intune Service Modernization) and **Walmart Global Tech** (form-building platform, product recalls, and chatbots)  
+- 🚀 Skilled in **Java, Python, Node.js, Spring Boot, Kafka, SQL/NoSQL databases, Kubernetes, and Azure**  
+- 🛠️ Strong background in **DevOps practices, application monitoring, software testing, and continuous integration**  
+- 📈 Passionate about building **scalable, secure, and user-focused solutions**  
+
+---
+
+## 🚀 Featured Projects  
+### 🔹 [Invoice Automation](#)
+Automated the generation and delivery of invoice PDFs via backend services, reducing manual effort and ensuring timely communication.  
+
+### 🔹 [Chatbot with Dialogflow](#)
+End-to-end chatbot for supplier onboarding and support using **Dialogflow**, integrated with backend APIs for seamless query handling.  
+
+### 🔹 [Kafka Notification Service](#)
+Designed and deployed a **real-time notification system** using Kafka, cron jobs, and Redis cache to keep store users updated.  
+
+### 🔹 [Handwritten Character Recognition](#)
+Deep learning model (CNN) with **TensorFlow/Keras**, achieving 98% accuracy on EMNIST dataset for alphanumeric recognition.  
+
+---
+
+## 🛠️ Tech Stack  
+**Languages:** Java, Python, JavaScript  
+**Frameworks:** Spring Boot, Django, FastAPI  
+**Databases:** PostgreSQL, MySQL, MongoDB, Cosmos DB  
+**Tools & Platforms:** Kafka, Redis, Kubernetes, Azure, GCP, Git, JUnit, RESTful APIs, GraphQL  
+**Other Skills:** System Design, DevOps Practices, Code Reviews, Application Monitoring, Software Testing  
+
+---
+
+## 📫 Connect with Me  
+- [LinkedIn](https://www.linkedin.com/in/sonali-sahu-209b69156)  
+- 📧 [sonalisahu2309@gmail.com](mailto:sonalisahu2309@gmail.com)  
+
+---
+
+⭐️ *Thanks for visiting my portfolio! Feel free to check out my projects and connect with me.*  
