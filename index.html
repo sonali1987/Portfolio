@@ -41,61 +41,98 @@
 
     /* Hero Section */
     .hero {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: 4rem;
+      background: linear-gradient(to bottom right, #fdfdfd, #f7f7f7);
       position: relative;
       overflow: hidden;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-    .hero h2 { font-size: 1.3rem; color: #004aad; margin-bottom: 1rem; }
-    .hero p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+    .hero h1 { font-size: 3rem; margin: 0; }
+    .hero h2 { font-size: 1.5rem; color: #004aad; margin: 1rem 0; }
+    .hero p { font-size: 1.2rem; }
 
+    .skills-tags {
+      margin: 1rem 0;
+    }
     .skills-tags span {
       display: inline-block;
       margin: 0.3rem;
-      padding: 0.4rem 0.8rem;
-      background: #f0f0f0;
+      padding: 0.5rem 1rem;
+      background: #eee;
       border-radius: 20px;
       font-size: 0.9rem;
     }
 
-    .hero-buttons { margin-top: 1rem; }
+    .hero-buttons {
+      margin: 1.5rem 0;
+    }
     .btn {
       display: inline-block;
       margin: 0.5rem;
       padding: 0.7rem 1.5rem;
+      text-decoration: none;
       border-radius: 25px;
       font-weight: bold;
-      text-decoration: none;
+      transition: 0.3s;
     }
-    .primary {
+    .btn.primary {
       background: linear-gradient(90deg, #4a90e2, #9c27b0);
-      color: white;
+      color: #fff;
     }
-    .secondary {
-      background: #eee;
+    .btn.secondary {
+      background: #f2f2f2;
       color: #333;
     }
+    .btn:hover { opacity: 0.9; }
 
-    .scroll { margin-top: 2rem; color: gray; }
+    /* Floating Icons Animations */
+    @keyframes rocketFloat {
+      0% { transform: translate(0,0) rotate(0deg); }
+      50% { transform: translate(15px,-20px) rotate(15deg); }
+      100% { transform: translate(0,0) rotate(0deg); }
+    }
+    @keyframes laptopWobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+    @keyframes lightningShake {
+      0%, 100% { transform: translate(0,0); }
+      20% { transform: translate(-3px,2px); }
+      40% { transform: translate(3px,-2px); }
+      60% { transform: translate(-2px,3px); }
+      80% { transform: translate(2px,-3px); }
+    }
+    @keyframes fireFlicker {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      25% { transform: scale(1.1); opacity: 1; }
+      50% { transform: scale(0.95); opacity: 0.7; }
+      75% { transform: scale(1.05); opacity: 0.85; }
+    }
 
-    /* Floating Icons */
     .floating-icons .icon {
       position: absolute;
       font-size: 1.5rem;
-      opacity: 0.8;
+      opacity: 0.85;
     }
-    .floating-icons .icon:nth-child(1) { top: 15%; left: 10%; }
-    .floating-icons .icon:nth-child(2) { bottom: 15%; right: 15%; }
-    .floating-icons .icon:nth-child(3) { top: 40%; left: 5%; }
-    .floating-icons .icon:nth-child(4) { bottom: 10%; right: 5%; }
+    .floating-icons .rocket { top: 15%; left: 10%; animation: rocketFloat 6s ease-in-out infinite; }
+    .floating-icons .laptop { bottom: 20%; right: 15%; animation: laptopWobble 4s ease-in-out infinite; }
+    .floating-icons .lightning { top: 25%; right: 12%; animation: lightningShake 1.5s infinite; }
+    .floating-icons .fire { bottom: 15%; left: 15%; animation: fireFlicker 2s infinite; }
 
-    /* Section Wrapper */
+    .scroll {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: gray;
+      position: relative;
+      bottom: 10px;
+    }
+
+    /* Section Base */
     section {
       max-width: 1100px;
       margin: 5rem auto;
@@ -116,22 +153,23 @@
       margin: 0.5rem auto 0;
     }
 
-    /* Skills (Technical Expertise) */
-    .skills-wrapper {
+    /* Technical Expertise (new design) */
+    .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
       justify-content: center;
+      gap: 2rem;
     }
-    .skill-box {
+    .skill-card {
       flex: 1 1 300px;
-      background: #f9f9f9;
+      background: #fff;
       padding: 1.5rem;
       border-radius: 12px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .skill-box h3 {
-      margin-bottom: 1rem;
+    .skill-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -139,12 +177,12 @@
     .progress-bar {
       background: #eee;
       border-radius: 5px;
-      height: 10px;
-      margin: 0.5rem 0 1rem;
       overflow: hidden;
+      height: 8px;
+      margin: 0.5rem 0 1rem;
     }
     .progress {
-      height: 10px;
+      height: 8px;
       border-radius: 5px;
     }
     .blue { background: #4a90e2; }
@@ -250,51 +288,32 @@
 
     <p class="scroll">↓ Scroll to explore ↓</p>
 
-    <!-- Floating icons -->
     <div class="floating-icons">
-      <span class="icon">🚀</span>
-      <span class="icon">💻</span>
-      <span class="icon">⚡</span>
-      <span class="icon">🔥</span>
+      <span class="icon rocket">🚀</span>
+      <span class="icon laptop">💻</span>
+      <span class="icon lightning">⚡</span>
+      <span class="icon fire">🔥</span>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Technical Expertise -->
   <section id="skills" data-aos="fade-up">
     <h2>Technical Expertise</h2>
-    <div class="skills-wrapper">
-      <div class="skill-box">
+    <div class="skills-grid">
+      <div class="skill-card">
         <h3>🎨 Frontend Development</h3>
-        React & Next.js
+        <p>React, Next.js, TypeScript, Modern CSS, Web Animation</p>
         <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
-        TypeScript
-        <div class="progress-bar"><div class="progress blue" style="width:90%"></div></div>
-        Modern CSS
-        <div class="progress-bar"><div class="progress blue" style="width:95%"></div></div>
-        Web Animation
-        <div class="progress-bar"><div class="progress blue" style="width:85%"></div></div>
       </div>
-      <div class="skill-box">
+      <div class="skill-card">
         <h3>⚡ Backend & APIs</h3>
-        Node.js
+        <p>Node.js, RESTful APIs, GraphQL, Database Design</p>
         <div class="progress-bar"><div class="progress green" style="width:90%"></div></div>
-        RESTful APIs
-        <div class="progress-bar"><div class="progress green" style="width:95%"></div></div>
-        GraphQL
-        <div class="progress-bar"><div class="progress green" style="width:85%"></div></div>
-        Database Design
-        <div class="progress-bar"><div class="progress green" style="width:88%"></div></div>
       </div>
-      <div class="skill-box">
+      <div class="skill-card">
         <h3>🚀 Performance & DevOps</h3>
-        Web Performance
-        <div class="progress-bar"><div class="progress purple" style="width:92%"></div></div>
-        CI/CD
-        <div class="progress-bar"><div class="progress purple" style="width:88%"></div></div>
-        Docker
+        <p>CI/CD, Docker, Kubernetes, AWS, Azure</p>
         <div class="progress-bar"><div class="progress purple" style="width:85%"></div></div>
-        AWS
-        <div class="progress-bar"><div class="progress purple" style="width:82%"></div></div>
       </div>
     </div>
   </section>
@@ -303,61 +322,28 @@
   <section id="experience" data-aos="fade-up">
     <h2>Professional Experience</h2>
     <div class="experience">
-
-      <!-- Microsoft -->
       <div class="job">
         <img src="microsoft-logo.png" alt="Microsoft">
         <div class="job-info">
-          <h3>Software Engineer II – Microsoft, India</h3>
-          <p><em>Intune, Service Modernization Team | June 2024 – Present</em></p>
+          <h3>Software Engineer II – Microsoft</h3>
+          <p><em>June 2024 – Present</em></p>
           <ul>
-            <li>Led migration of 19GB data from Reliable Collection (RC) to Cosmos DB.</li>
-            <li>Migrated SQL connector & service components for Intune data pipelines.</li>
-            <li>Validated and deployed services across oneDF, SH, CTIP.</li>
-            <li>Collaborated with teams & authored documentation.</li>
+            <li>Led migration of 19GB data from Reliable Collection to Cosmos DB.</li>
+            <li>Migrated SQL connector & service components for Intune pipelines.</li>
+            <li>Validated & deployed services across multiple platforms.</li>
           </ul>
         </div>
       </div>
 
-      <!-- Walmart -->
       <div class="job">
         <img src="walmart-logo.png" alt="Walmart">
         <div class="job-info">
-          <h3>Software Engineer III – Walmart Global Tech, India</h3>
-          <p><em>Reach & Product Recall | Aug 2022 – May 2024</em></p>
+          <h3>Software Engineer III – Walmart Global Tech</h3>
+          <p><em>Aug 2022 – May 2024</em></p>
           <ul>
             <li>Developed form-building platform with customizable fields & rules.</li>
-            <li>Integrated GCP BigQuery for backend operations and analytics.</li>
+            <li>Integrated GCP BigQuery for backend analytics.</li>
             <li>Built APIs improving performance and processing time.</li>
-            <li>Implemented validations, integrations & monitoring.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <img src="walmart-logo.png" alt="Walmart">
-        <div class="job-info">
-          <h3>Software Engineer II – Walmart Global Tech, India</h3>
-          <p><em>Product Removal | Aug 2020 – Aug 2022</em></p>
-          <ul>
-            <li>Developed REST APIs & GraphQL queries with integrations.</li>
-            <li>Built Kafka-based email notification system on Kubernetes.</li>
-            <li>Created cron jobs syncing SQL with Kafka & Redis.</li>
-            <li>Authored JUnit & Chai unit tests.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <img src="walmart-logo.png" alt="Walmart">
-        <div class="job-info">
-          <h3>Software Development Intern – Walmart Global Tech, India</h3>
-          <p><em>Skywalker | Jan 2020 – Jul 2020</em></p>
-          <ul>
-            <li>Developed REST APIs for supplier agreements & chatbot with Dialogflow.</li>
-            <li>Delivered omni-channel supplier experience.</li>
-            <li>Achieved 95% JUnit coverage.</li>
-            <li>Received PPO in July 2020.</li>
           </ul>
         </div>
       </div>
