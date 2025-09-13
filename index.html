@@ -57,6 +57,41 @@
       overflow: hidden;
       padding-top: 60px; /* allow for fixed header */
     }
+    /* Grid-style cards (like your screenshot) */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+}
+
+.card {
+  background: #b2f2e8; /* soft greenish background */
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #0b1220;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card span {
+  font-weight: 800;
+  color: #333;
+  font-size: 1.1rem;
+  min-width: 28px;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
 
     /* Glow behind the title (centered) */
     .hero::before{
@@ -461,55 +496,30 @@
 <!-- ---------- Certifications & Awards ---------- -->
 <section id="certifications" data-aos="fade-up">
   <h2>📜 Certifications & Awards</h2>
-  <div class="projects">
-    <div class="project-card">
-      <div class="project-info">Machine Learning Crash Course – Google</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">Apache Kafka – LinkedIn</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">Neural Networks & Deep Learning – Coursera</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">Learning JavaScript – LinkedIn</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">Microservices & REST API – PluralSight</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">Machine Learning Crash Course – CloudyML</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">🏆 Walmart Associate of the Month</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">🥈 1st Runner-up – Codestreak</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">🥈 1st Runner-up – CR of Mood Indigo</div>
-    </div>
+  <div class="grid-cards">
+    <div class="card"><span>01</span> Machine Learning Crash Course – Google</div>
+    <div class="card"><span>02</span> Apache Kafka – LinkedIn</div>
+    <div class="card"><span>03</span> Neural Networks & Deep Learning – Coursera</div>
+    <div class="card"><span>04</span> Learning JavaScript – LinkedIn</div>
+    <div class="card"><span>05</span> Microservices & REST API – PluralSight</div>
+    <div class="card"><span>06</span> Machine Learning Crash Course – CloudyML</div>
+    <div class="card"><span>07</span> 🏆 Walmart Associate of the Month</div>
+    <div class="card"><span>08</span> 🥈 1st Runner-up – Codestreak</div>
+    <div class="card"><span>09</span> 🥈 1st Runner-up – CR of Mood Indigo</div>
   </div>
 </section>
 
 <!-- ---------- Co-Curricular Activities ---------- -->
 <section id="activities" data-aos="fade-up">
   <h2>🎤 Co-Curricular Activities</h2>
-  <div class="projects">
-    <div class="project-card">
-      <div class="project-info">🎯 Hosted area-level meet-up – Walmart</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">🌟 Internshala Student Partner 9.0</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">👩‍💼 Contingent Leader – Mood Indigo, IIT Bombay</div>
-    </div>
-    <div class="project-card">
-      <div class="project-info">💡 Established LinkedIn presence – 100K+ followers</div>
-    </div>
+  <div class="grid-cards">
+    <div class="card"><span>01</span> Hosted area-level meet-up – Walmart</div>
+    <div class="card"><span>02</span> Internshala Student Partner 9.0</div>
+    <div class="card"><span>03</span> Contingent Leader – Mood Indigo, IIT Bombay</div>
+    <div class="card"><span>04</span> Established LinkedIn presence – 100K+ followers</div>
   </div>
 </section>
+
 
 
   <!-- ---------- Contact ---------- -->
